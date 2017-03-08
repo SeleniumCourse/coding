@@ -1,4 +1,4 @@
-package com.jala.selenium.movie;
+package com.jalasoft.selenium.ronald.movies;
 
 /**
  * @author bsronald on 3/6/17.

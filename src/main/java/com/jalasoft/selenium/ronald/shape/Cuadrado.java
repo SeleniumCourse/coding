@@ -1,4 +1,4 @@
-package com.jala.selenium;
+package com.jalasoft.selenium.ronald.shape;
 
 /**
  * @author bsronald on 3/3/17.

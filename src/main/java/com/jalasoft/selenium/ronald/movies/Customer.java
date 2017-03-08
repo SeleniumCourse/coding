@@ -1,4 +1,4 @@
-package com.jala.selenium.movie;
+package com.jalasoft.selenium.ronald.movies;
 
 import java.util.Enumeration;
 import java.util.Vector;
