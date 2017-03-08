@@ -1,5 +1,7 @@
-package com.jalasoft.selenium.movies;
+package com.jalasoft.selenium.daniel.jauregui.movies;
 
+import com.jalasoft.selenium.daniel.jauregui.movies.aMovie;
+import com.jalasoft.selenium.daniel.jauregui.movies.Children;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

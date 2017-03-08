@@ -1,5 +1,7 @@
-package com.jalasoft.selenium.shapes;
+package com.jalasoft.selenium.daniel.jauregui.shapes;
 
+import com.jalasoft.selenium.daniel.jauregui.shapes.Circle;
+import com.jalasoft.selenium.daniel.jauregui.shapes.iShape;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

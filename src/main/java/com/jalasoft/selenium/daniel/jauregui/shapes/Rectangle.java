@@ -1,4 +1,4 @@
-package com.jalasoft.selenium.shapes;
+package com.jalasoft.selenium.daniel.jauregui.shapes;
 
 public class Rectangle extends Shape{
     private double altura;

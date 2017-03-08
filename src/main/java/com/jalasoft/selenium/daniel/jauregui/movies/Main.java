@@ -1,4 +1,4 @@
-package com.jalasoft.selenium.movies;
+package com.jalasoft.selenium.daniel.jauregui.movies;
 
 public class Main {
     public static void main(String[] args) {

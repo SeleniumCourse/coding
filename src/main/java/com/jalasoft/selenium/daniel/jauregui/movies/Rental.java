@@ -1,4 +1,4 @@
-package com.jalasoft.selenium.movies;
+package com.jalasoft.selenium.daniel.jauregui.movies;
 
 class Rental {
     private final aMovie _movie;
