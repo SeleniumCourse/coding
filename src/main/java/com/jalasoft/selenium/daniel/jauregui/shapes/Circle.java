@@ -1,4 +1,4 @@
-package com.jalasoft.selenium.shapes;
+package com.jalasoft.selenium.daniel.jauregui.shapes;
 
 public class Circle extends Shape {
     private double Pi;

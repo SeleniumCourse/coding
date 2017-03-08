@@ -1,4 +1,4 @@
-package com.jalasoft.selenium.movies;
+package com.jalasoft.selenium.daniel.jauregui.movies;
 
 abstract class aMovie implements iMovie {
     private String _title;

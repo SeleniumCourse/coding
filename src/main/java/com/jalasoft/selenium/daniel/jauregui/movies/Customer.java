@@ -1,4 +1,4 @@
-package com.jalasoft.selenium.movies;
+package com.jalasoft.selenium.daniel.jauregui.movies;
 
 import java.util.ArrayList;
 import java.util.Iterator;

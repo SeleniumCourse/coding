@@ -1,4 +1,4 @@
-package com.jalasoft.selenium.shapes;
+package com.jalasoft.selenium.daniel.jauregui.shapes;
 
 public class Square extends Rectangle {
     private double altura;
