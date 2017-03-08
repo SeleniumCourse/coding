@@ -1,5 +1,8 @@
 package com.jalasoft.selenium.movies;
 
+/**
+ * Class Children
+ */
 public class Children extends aMovie {
     
     public Children(String _title,int bonus) {
