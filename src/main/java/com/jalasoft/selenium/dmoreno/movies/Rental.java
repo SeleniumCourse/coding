@@ -1,23 +1,42 @@
 package com.jalasoft.selenium.dmoreno.movies;
 
+/**
+ *
+ */
 public abstract class Rental {
-    private Movie _movie;
-    private int _daysRented;
+    private Movie movie;
+    private int daysRented;
 
-    public Rental(Movie movie, int daysRented) {
-        _movie = movie;
-        _daysRented = daysRented;
+    /**
+     * @param movie movie
+     * @param daysRented days rented
+     */
+    public Rental(final Movie movie, final int daysRented) {
+        this.movie = movie;
+        this.daysRented = daysRented;
     }
 
+    /**
+     * @return days rented
+     */
     public int getDaysRented() {
-        return _daysRented;
+        return daysRented;
     }
 
+    /**
+     * @return movie
+     */
     public Movie getMovie() {
-        return _movie;
+        return movie;
     }
 
+    /**
+     * @return rental amount
+     */
     public abstract double calculateRentalAmount();
 
+    /**
+     * @return frequent renter points
+     */
     public abstract int getFrequentRenterPoints();
 }

@@ -1,15 +1,31 @@
 package com.jalasoft.selenium.dmoreno.movies;
 
+/**
+ *
+ */
 public class RegularRental extends Rental {
 
-    public RegularRental(Movie movie, int daysRented) {
+    /**
+     * @param movie The movie
+     * @param daysRented days rented
+     */
+    public RegularRental(final Movie movie, final int daysRented) {
+
         super(movie, daysRented);
     }
 
+    /**
+     * @return rental amount
+     */
     public double calculateRentalAmount() {
-        return this.getDaysRented() * 3;
+        final double amountMultiplier = 3;
+
+        return this.getDaysRented() * amountMultiplier;
     }
 
+    /**
+     * @return renter points
+     */
     public int getFrequentRenterPoints() {
         return 0;
     }

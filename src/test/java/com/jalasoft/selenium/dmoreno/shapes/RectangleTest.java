@@ -1,18 +1,22 @@
 package com.jalasoft.selenium.dmoreno.shapes;
 
-import com.jalasoft.selenium.dmoreno.shapes.IShape;
-import com.jalasoft.selenium.dmoreno.shapes.Rectangle;
 import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
+/**
+ *
+ */
 public class RectangleTest {
 
     private IShape shape;
 
+    /**
+     *
+     */
     @Before
-    public void setUp(){
+    public void setUp() {
         //Given
         final int width = 2;
         final int height = 2;
@@ -20,8 +24,11 @@ public class RectangleTest {
         shape = new Rectangle(width, height);
     }
 
+    /**
+     *
+     */
     @Test
-    public void test_calculatePerimeter_when(){
+    public void testCalculatePerimeterWhen() {
         // When
         final double actualPerimeter = shape.calculatePerimeter();
 
@@ -30,8 +37,11 @@ public class RectangleTest {
         assertEquals(expectedPerimeter, actualPerimeter);
     }
 
+    /**
+     *
+     */
     @Test
-    public void test_calculateArea_when(){
+    public void testCalculateAreaWhen() {
         // When
         final double actualArea = shape.calculateArea();
 

@@ -1,7 +1,5 @@
 package com.jalasoft.selenium.dmoreno.shapes;
 
-import com.jalasoft.selenium.dmoreno.shapes.IShape;
-import com.jalasoft.selenium.dmoreno.shapes.Square;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,15 +12,21 @@ public class SquareTest {
 
     private IShape square;
 
+    /**
+     *
+     */
     @Before
-    public void setUp(){
+    public void setUp() {
         // Given
         final int side = 2;
         square = new Square(side);
     }
 
+    /**
+     *
+     */
     @Test
-    public void test_calculatePerimeter_when(){
+    public void testCalculatePerimeterWhen() {
         //When
         double actualPerimeter = square.calculatePerimeter();
 
@@ -31,8 +35,11 @@ public class SquareTest {
         assertEquals(expectedPerimeter, actualPerimeter);
     }
 
+    /**
+     *
+     */
     @Test
-    public void test_calculateArea_when(){
+    public void testCalculateAreaWhen() {
         //When
         double actualArea = square.calculateArea();
 

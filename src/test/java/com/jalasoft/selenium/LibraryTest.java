@@ -1,4 +1,4 @@
-package com.jalasoft.selenium.dmoreno.shapes;
+package com.jalasoft.selenium;
 
 import com.jalasoft.selenium.dmoreno.Library;
 import org.junit.Test;

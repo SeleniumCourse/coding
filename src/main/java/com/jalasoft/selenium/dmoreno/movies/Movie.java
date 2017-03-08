@@ -1,14 +1,23 @@
 package com.jalasoft.selenium.dmoreno.movies;
 
 
+/**
+ *
+ */
 public class Movie {
-    private String _title;
+    private String title;
 
-    public Movie(String title) {
-        _title = title;
+    /**
+     * @param title title
+     */
+    public Movie(final String title) {
+        this.title = title;
     }
 
+    /**
+     * @return title
+     */
     public String getTitle() {
-        return _title;
+        return title;
     }
 }

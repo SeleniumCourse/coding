@@ -1,32 +1,42 @@
 package com.jalasoft.selenium.dmoreno.shapes;
 
-import com.jalasoft.selenium.dmoreno.shapes.Circle;
-import com.jalasoft.selenium.dmoreno.shapes.IShape;
 import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
+/**
+ *
+ */
 public class CircleTest {
 
     private IShape shape;
 
+    /**
+     *
+     */
     @Before
-    public void setUp(){
+    public void setUp() {
         final int radius = 10;
         shape = new Circle(radius);
     }
 
+    /**
+     *
+     */
     @Test
-    public void test_calculateArea_when(){
+    public void testCalculateAreaWhen() {
         double actualArea = shape.calculateArea();
 
         final double expectedArea = 314.1592653589793;
         assertEquals(expectedArea, actualArea);
     }
 
+    /**
+     *
+     */
     @Test
-    public void getPerimeterCircleTest(){
+    public void testCalculatePerimeterWhen() {
         double actualPerimeter = shape.calculatePerimeter();
 
         final double expectedPerimeter = 62.83185307179586;
