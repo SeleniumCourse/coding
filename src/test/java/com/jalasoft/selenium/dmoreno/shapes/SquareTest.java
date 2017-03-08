@@ -1,5 +1,7 @@
-package com.jalasoft.selenium;
+package com.jalasoft.selenium.dmoreno.shapes;
 
+import com.jalasoft.selenium.dmoreno.shapes.IShape;
+import com.jalasoft.selenium.dmoreno.shapes.Square;
 import org.junit.Before;
 import org.junit.Test;
 

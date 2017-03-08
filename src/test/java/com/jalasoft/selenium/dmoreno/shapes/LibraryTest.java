@@ -1,5 +1,6 @@
-package com.jalasoft.selenium;
+package com.jalasoft.selenium.dmoreno.shapes;
 
+import com.jalasoft.selenium.dmoreno.Library;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;

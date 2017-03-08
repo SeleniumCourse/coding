@@ -1,4 +1,4 @@
-package com.jalasoft.selenium;
+package com.jalasoft.selenium.dmoreno.movies;
 
 public class ChildrenRental extends Rental {
 

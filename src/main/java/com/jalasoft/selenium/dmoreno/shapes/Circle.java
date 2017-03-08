@@ -1,4 +1,4 @@
-package com.jalasoft.selenium;
+package com.jalasoft.selenium.dmoreno.shapes;
 
 /**
  * Created by Daniel Moreno on 3/3/2017.

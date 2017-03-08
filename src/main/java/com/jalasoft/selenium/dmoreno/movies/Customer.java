@@ -1,4 +1,4 @@
-package com.jalasoft.selenium;
+package com.jalasoft.selenium.dmoreno.movies;
 
 import java.util.Enumeration;
 import java.util.Vector;
