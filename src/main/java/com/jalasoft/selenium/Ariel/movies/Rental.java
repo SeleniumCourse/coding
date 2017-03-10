@@ -12,7 +12,7 @@ class Rental {
      * @param movie         the movie being rented.
      * @param daysRented    the days the movie is rented.
      */
-    public Rental(final Movie movie, final int daysRented) {
+    Rental(final Movie movie, final int daysRented) {
         this.movie = movie;
         this.daysRented = daysRented;
     }
