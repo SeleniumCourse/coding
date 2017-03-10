@@ -1,7 +1,5 @@
 package com.jalasoft.selenium.Ariel.shape;
 
-import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,35 +10,43 @@ import static org.junit.Assert.assertEquals;
  */
 public class CircleTest {
 
-    private final double DELTA = 0;
-    private final double PI = 3.14;
-    final int radius = 5;
+    private static final double DELTA = 0;
+    private static final int RADIUS = 5;
 
     private Shape circle;
 
+    /**
+     * Creates a circle object.
+     */
     @Before
     public void setUp() {
         // Given
-        circle = new Circle(radius); // Always instanciate through the abstract class
+        circle = new Circle(RADIUS); // Always instantiate through the abstract class
     }
 
+    /**
+     * Should return the area of the circle when a positive radius is supplied.
+     */
     @Test
-    public void test_calculateArea_when() {
+    public void testCalculateAreaWhenRadiusIsPositive() {
         // When
         final double actualArea = circle.calculateArea();
 
         // Then
-        final double expectedArea = PI * Math.pow(radius, 2);
+        final double expectedArea = Math.PI * Math.pow(RADIUS, 2);
         assertEquals(expectedArea, actualArea, DELTA);
     }
 
+    /**
+     * Should return the perimeter of the circle when a positive radius is supplied.
+     */
     @Test
-    public void test_calculatePerimeter_when() {
+    public void testCalculatePerimeterWhenRadiusIsPositive() {
         // When
         final double actualPerimeter = circle.calculatePerimeter();
 
         // Then
-        final double expectedPerimeter = 2 * PI * radius;
+        final double expectedPerimeter = 2 * Math.PI * RADIUS;
         assertEquals(expectedPerimeter, actualPerimeter, DELTA);
     }
 

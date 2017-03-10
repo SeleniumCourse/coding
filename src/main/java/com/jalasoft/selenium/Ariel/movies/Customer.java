@@ -3,43 +3,89 @@ package com.jalasoft.selenium.Ariel.movies;
 import java.util.Enumeration;
 import java.util.Vector;
 
+/**
+ * Created by Ariel Mattos on 3/6/2017.
+ */
+
 class Customer {
     private String name;
     private Vector rentals = new Vector();
 
+    /**
+     * Creates a Children movie with the given title.
+     * @param name          the name of the customer.
+     */
     public Customer(final String name) {
         this.name = name;
     }
 
-    public void addRental(final Rental arg) {
-        rentals.addElement(arg);
+    /**
+     * Add a movie rental object to the list of the user's movie rentals.
+     * @param rental        a movie rental object.
+     */
+    public void addRental(final Rental rental) {
+        rentals.addElement(rental);
     }
 
+    /**
+     * Returns the name of the user.
+     * @return              a String containing the name of the user.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Returns a statement of the movie rentals, total charges and frequent renter points.
+     * @return               a string containing the movie rentals, total charges and frequent renter points.
+     */
     public String statement() {
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
         Enumeration rentals = this.rentals.elements();
-        String result = "Rental Record for " + getName() + "\n";
+        StringBuffer report = new StringBuffer();
+        report.append("Rental Record for " + getName() + "\n");
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
-            double thisAmount = each.getMovie().calculateAmount(each.getDaysRented());
-            // add frequent renter points
-            frequentRenterPoints += each.getMovie().calculateFrequentRenterPoints(each.getDaysRented());
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t"
-                    + String.valueOf(thisAmount) + "\n";
-            totalAmount += thisAmount;
+            String rentalFigure = "\t" + each.getMovie().getTitle()
+                    + "\t" + String.valueOf(each.getMovie().calculateAmount(each.getDaysRented())) + "\n";
+            report.append(rentalFigure);
         }
-        //add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount)
-                + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints)
-                + " frequent renter points";
+        report.append("Amount owed is " + String.valueOf(calculateTotalAmount()) + "\n");
+        report.append("You earned " + String.valueOf(calculateFrequentRenterPoints()) + " frequent renter points");
 
-        return result;
+        return report.toString();
+    }
+
+    /**
+     * Calculate the total charges for all rented movies.
+     * @return              the total amount owed by the customer.
+     */
+    public double calculateTotalAmount() {
+        double totalAmount = 0;
+        Enumeration rentals = this.rentals.elements();
+
+        while (rentals.hasMoreElements()) {
+            Rental each = (Rental) rentals.nextElement();
+            totalAmount += each.getMovie().calculateAmount(each.getDaysRented());
+        }
+
+        return totalAmount;
+    }
+
+    /**
+     * Calculate the total frequent renter points accumulated for all rented movies.
+     * @return              the total frequent renter points of the customer.
+     */
+    public int calculateFrequentRenterPoints() {
+        int totalFrequentRenterPoints = 0;
+        Enumeration rentals = this.rentals.elements();
+
+        while (rentals.hasMoreElements()) {
+            Rental each = (Rental) rentals.nextElement();
+            totalFrequentRenterPoints += each.getMovie().calculateAmount(each.getDaysRented());
+        }
+
+        return totalFrequentRenterPoints;
     }
 }
+
