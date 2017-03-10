@@ -1,30 +1,27 @@
 package com.jalasoft.selenium.daniel.jauregui.shapes;
 
-import com.jalasoft.selenium.daniel.jauregui.shapes.Square;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import com.jalasoft.selenium.daniel.jauregui.shapes.ShapeInt;
-
+import static org.junit.Assert.assertEquals;
 /**
- *
+ * CuadradoTest.
  * @author daniel jauregui
  */
 public class CuadradoTest {
-    
+
     private ShapeInt instance;
-    private final double DELTA = 0.0;
-    
-    public CuadradoTest() {
-    }
-    
+    private static final double DELTA = 0.0;
+
+    /**
+     * Initialize Variables.
+     */
     @Before
     public void setUp() {
         //Given
         final double altura = 5.2;
         instance = new Square(altura);
     }
-    
+
     /**
      * Test of calculateArea method, of class Square.
      */

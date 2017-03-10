@@ -4,7 +4,7 @@ package com.jalasoft.selenium.daniel.jauregui.movies;
  * Class NewRelease.
  */
 public class NewRelease extends MovieAbs {
-    private final int restOfRentedDays = 3;
+    private static final int REST_DAYS = 3;
     /**
     * Constructor of Children.
      * @param title will contain the name of Movie.
@@ -24,6 +24,6 @@ public class NewRelease extends MovieAbs {
         if (rentedDays <= 0) {
             return 0;
         }
-        return (double) (rentedDays * restOfRentedDays);
+        return (double) (rentedDays * REST_DAYS);
     }
 }

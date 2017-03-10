@@ -8,7 +8,7 @@ import java.util.Iterator;
  */
 class Customer {
     private final String name;
-    private final ArrayList<Rental> rentals = new ArrayList();
+    private final ArrayList<Rental> rentals = new ArrayList<Rental>();
     /**
      * Constructor of Customer class.
      * @param name : Name of the customer.
@@ -29,7 +29,7 @@ class Customer {
      * getRentals.
      * @return : Get Object with all rentals of customer.
      */
-    public ArrayList getRentals() {
+    public ArrayList<Rental> getRentals() {
         return this.rentals;
     }
 
@@ -48,24 +48,30 @@ class Customer {
     public String statement() {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
-        Iterator<Rental> rentals = this.rentals.iterator();
-        String result = "Rental Record for " + getName() + "\n";
+        Iterator<Rental> rentalsLocal = this.rentals.iterator();
         Rental each;
         double thisAmount;
-        while (rentals.hasNext()) {
-            each = (Rental) rentals.next();
+        StringBuilder result = new StringBuilder();
+        result.append("Rental Record for ").append(getName()).append("\n");
+        while (rentalsLocal.hasNext()) {
+            each = (Rental) rentalsLocal.next();
             // Get rate of movie
             thisAmount = each.getMovie().calculateRate(each.getDaysRented());
-            // add frequent renter points and bonus for a two day new release rental
-            frequentRenterPoints += each.getMovie().calculateBonus(each.getDaysRented());
+            // add frequent renter points, bonus for two day new release rental
+            frequentRenterPoints += each.getMovie()
+                    .calculateBonus(each.getDaysRented());
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t";
-            result += String.valueOf(thisAmount) + "\n";
+            result.append("\t").append(each.getMovie().getTitle())
+                    .append("\t").append(String.valueOf(thisAmount))
+                    .append("\n");
             totalAmount += thisAmount;
         }
         //add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
-        return result;
+        result.append("Amount owed is ").append(String.valueOf(totalAmount))
+                .append("\n");
+        result.append("You earned ")
+                .append(String.valueOf(frequentRenterPoints))
+                .append(" frequent renter points");
+        return result.toString();
     }
 }

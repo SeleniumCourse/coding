@@ -1,23 +1,21 @@
 package com.jalasoft.selenium.daniel.jauregui.shapes;
 
-import com.jalasoft.selenium.daniel.jauregui.shapes.Rectangle;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import com.jalasoft.selenium.daniel.jauregui.shapes.ShapeInt;
+import static org.junit.Assert.assertEquals;
 
 /**
- *
+ * RectanguloTest.
  * @author daniel jauregui
  */
 public class RectanguloTest {
-    
+
     private ShapeInt instance;
-    private final double DELTA = 0.0;
-    
-    public RectanguloTest() {
-    }
-    
+    private static final double DELTA = 0.0;
+
+    /**
+     * Initialize Variables.
+     */
     @Before
     public void setUp() {
         //Given
@@ -25,7 +23,7 @@ public class RectanguloTest {
         final double longitud = 6.3;
         instance = new Rectangle(altura, longitud);
     }
-    
+
     /**
      * Test of calculateArea method, of class Rectangle.
      */
@@ -33,7 +31,6 @@ public class RectanguloTest {
     public void testCalculateArea() {
         // When
         final double result = instance.calculateArea();
-
         //Then
         System.out.println("calculateArea");
         final double expResult = 32.76;
@@ -47,11 +44,9 @@ public class RectanguloTest {
     public void testCalculatePerimeter() {
         // When
         final double result = instance.calculatePerimeter();
-
         //Then
         System.out.println("calculatePerimeter");
         final double expResult = 23;
         assertEquals(expResult, result, DELTA);
     }
-    
 }

@@ -5,39 +5,39 @@
  */
 package com.jalasoft.selenium.daniel.jauregui.movies;
 
-import com.jalasoft.selenium.daniel.jauregui.movies.Rental;
-import com.jalasoft.selenium.daniel.jauregui.movies.Children;
-import com.jalasoft.selenium.daniel.jauregui.movies.Customer;
-import com.jalasoft.selenium.daniel.jauregui.movies.NewRelease;
-import com.jalasoft.selenium.daniel.jauregui.movies.Regular;
+import java.util.Iterator;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
- *
+ * CustomerTest.
  * @author Daniel Jauregui
  */
 public class CustomerTest {
-    
     private Customer instance;
-    
+    /**
+     * Initialize a object.
+     */
     @Before
     public void setUp() {
         //Given
+        final int days7 = 7;
+        final int days2 = 2;
+        final int days3 = 3;
         instance = new Customer("TestClient");
+        instance.addRental(new Rental(new NewRelease("Lego Batman", 0), days7));
+        instance.addRental(new Rental(new Regular("Civil War", 0), days2));
+        instance.addRental(new Rental(new Children("Trolls", 0), days3));
     }
-    
+
     /**
      * Test of addRental method, of class Customer.
      */
     @Test
     public void testAddRental() {
         //When
-        instance.addRental(new Rental(new NewRelease("Lego Batman",0), 7));
-        instance.addRental(new Rental(new Regular("Civil War",0), 2));
-        instance.addRental(new Rental(new Children("Trolls",0), 3));
-        int expResult = 3;
+        final int expResult = 3;
         //Then
         System.out.println("addRental");
         assertEquals(expResult, instance.getRentals().size());
@@ -49,9 +49,6 @@ public class CustomerTest {
     @Test
     public void testStatementWithoutBonus() {
         //When
-        instance.addRental(new Rental(new NewRelease("Lego Batman",0), 7));
-        instance.addRental(new Rental(new Regular("Civil War",0), 2));
-        instance.addRental(new Rental(new Children("Trolls",0), 3));
         String result = instance.statement();
         System.out.println(result);
         String expResult = "Rental Record for TestClient\n";
@@ -64,13 +61,20 @@ public class CustomerTest {
         System.out.println("testStatementWithoutBonus");
         assertEquals(expResult, result);
     }
-    
+
+    /**
+     * Test of testStatementWithBonus.
+     */
     @Test
     public void testStatementWithBonus() {
         //When
-        instance.addRental(new Rental(new NewRelease("Lego Batman",1), 7));
-        instance.addRental(new Rental(new Regular("Civil War",1), 2));
-        instance.addRental(new Rental(new Children("Trolls",1), 3));
+        Iterator<Rental> rentals = instance.getRentals().iterator();
+        Rental each;
+        final int bonus = 1;
+        while (rentals.hasNext()) {
+            each = (Rental) rentals.next();
+            each.getMovie().setBonus(bonus);
+        }
         String result = instance.statement();
         System.out.println(result);
         String expResult = "Rental Record for TestClient\n";

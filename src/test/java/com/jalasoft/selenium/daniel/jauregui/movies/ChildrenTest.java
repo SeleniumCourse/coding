@@ -11,15 +11,14 @@ import static org.junit.Assert.assertEquals;
  */
 public class ChildrenTest {
     private MovieAbs instance;
-    private final double DELTA = 0.0;
-    
+    private static final double DELTA = 0.0;
     /**
      * Initialize a object.
      */
     @Before
     public void setUp() {
         // Given
-        instance = new Children("Big Hero",0);
+        instance = new Children("Big Hero", 0);
     }
 
     /**
@@ -28,8 +27,8 @@ public class ChildrenTest {
     @Test
     public void testCalculateRateWithRentedDaysMajorThan3() {
         //When
-        int rentedDays = 32;
-        double expResult = 45;
+        final int rentedDays = 32;
+        final double expResult = 45;
         double result = instance.calculateRate(rentedDays);
         //Then
         System.out.println("testCalculateRateWithRentedDaysMajorThan3");
@@ -37,7 +36,7 @@ public class ChildrenTest {
     }
 
     /**
-     * Test of calculattestCalculateRateWithRentedDaysLessThan3
+     * Test of calculattestCalculateRateWithRentedDaysLessThan3.
      */
     @Test
     public void testCalculateRateWithRentedDaysLessThan3() {
@@ -50,26 +49,31 @@ public class ChildrenTest {
         assertEquals(expResult, result, DELTA);
     }
 
+    /**
+     * Test of testCalculateRateWithRentedDaysEqualTo3.
+     */
     @Test
     public void testCalculateRateWithRentedDaysEqualTo3() {
         //when
-        int rentedDays = 3;
-        double expResult = 1.5;
+        final int rentedDays = 3;
+        final double expResult = 1.5;
         double result = instance.calculateRate(rentedDays);
         //Then
         System.out.println("testCalculateRateWithRentedDaysEqualTo3");
         assertEquals(expResult, result, DELTA);
     }
-    
+
+    /**
+     * Test of testCalculateRateWithRentedDaysEqualTo0.
+     */
     @Test
     public void testCalculateRateWithRentedDaysEqualTo0() {
         //When
-        int rentedDays = 0;
-        double expResult = 0;
+        final int rentedDays = 0;
+        final double expResult = 0;
         double result = instance.calculateRate(rentedDays);
         //Then
         System.out.println("testCalculateRateWithRentedDaysEqualTo0");
         assertEquals(expResult, result, DELTA);
     }
-    
 }
