@@ -5,7 +5,6 @@ package com.jalasoft.selenium.daniel.jauregui.shapes;
  * @author Daniel Jauregui
  */
 public class Circle extends Shape {
-    private final double pi = 3.1416;
     private double radio;
     /**
      * Constructor.
@@ -13,14 +12,6 @@ public class Circle extends Shape {
      */
     public Circle(final double radio) {
         this.radio = radio;
-    }
-
-    /**
-     * Get the Pi.
-     * @return Pi number;
-     */
-    public double getPi() {
-        return pi;
     }
 
     /**
@@ -46,7 +37,7 @@ public class Circle extends Shape {
     @Override
     public double calculateArea() {
         int exp = 2;
-        return roundNumber(this.pi * Math.pow(this.radio, exp));
+        return roundNumber(Math.PI * Math.pow(this.radio, exp));
     }
 
     /**
@@ -56,7 +47,7 @@ public class Circle extends Shape {
     @Override
     public double calculatePerimeter() {
         int exp = 2;
-        return roundNumber((exp * this.pi) * this.radio);
+        return roundNumber((exp * Math.PI) * this.radio);
     }
 
     /**
@@ -65,7 +56,7 @@ public class Circle extends Shape {
      * @return round of formula result.
      */
     public double roundNumber(final double formula) {
-        final int porcentage = 100;
+        final double porcentage = 100;
         return Math.round(formula * porcentage) / porcentage;
     }
 }

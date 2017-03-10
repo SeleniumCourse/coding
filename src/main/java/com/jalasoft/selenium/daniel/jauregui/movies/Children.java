@@ -4,8 +4,8 @@ package com.jalasoft.selenium.daniel.jauregui.movies;
  * Class Children.
  */
 public class Children extends MovieAbs {
-    private final int restOfRentedDays = 3;
-    private final double multiplyOfRentedDays = 1.5;
+    private static final int REST_DAYS = 3;
+    private static final double MULTIPLY_RENTED_DAYS = 1.5;
     /**
     * Constructor of Children.
      * @param title will contain the name of Movie.
@@ -25,9 +25,9 @@ public class Children extends MovieAbs {
         if (rentedDays <= 0) {
             return 0;
         }
-        double thisAmount = multiplyOfRentedDays;
-        if (rentedDays > restOfRentedDays) {
-            thisAmount += (rentedDays - restOfRentedDays) * multiplyOfRentedDays;
+        double thisAmount = MULTIPLY_RENTED_DAYS;
+        if (rentedDays > REST_DAYS) {
+            thisAmount += (rentedDays - REST_DAYS) * MULTIPLY_RENTED_DAYS;
         }
         return thisAmount;
     }

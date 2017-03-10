@@ -32,7 +32,7 @@ public class Square extends Rectangle {
     @Override
     public double calculatePerimeter() {
         int base = 2;
-        return roundNumber((base * this.altura) + (base * this.altura));
+        return roundNumber(base * this.altura + base * this.altura);
     }
 
     /**
@@ -42,7 +42,7 @@ public class Square extends Rectangle {
      */
     @Override
     public double roundNumber(final double formula) {
-        final int porcentage = 100;
+        final double porcentage = 100;
         return Math.round(formula * porcentage) / porcentage;
     }
 }

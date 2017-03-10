@@ -56,8 +56,8 @@ abstract class MovieAbs implements MovieInt {
      * @return the bonus if it is major than 0.
      */
     public int calculateBonus(final int rentedDays) {
-        if ((this.bonus != 0) && (rentedDays > 1)) {
-            return (this.bonus + 1);
+        if (this.bonus != 0 && rentedDays > 1) {
+            return this.bonus + 1;
         }
         return 1;
     }
