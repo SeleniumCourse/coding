@@ -18,7 +18,7 @@ public class Regular extends MovieAbs {
 
     /**
      *
-     * @param rentedDays: number of day where movie was rented.
+     * @param rentedDays number of day where movie was rented.
      * @return
      */
     @Override
