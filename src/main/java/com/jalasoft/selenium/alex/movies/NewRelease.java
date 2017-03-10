@@ -4,21 +4,28 @@ package com.jalasoft.selenium.alex.movies;
  * Created by Alex Alvarez on 3/7/2017.
  */
 public class NewRelease extends Movie {
-    public NewRelease(String title) {
+    private static final int NEW_RELEASE_VALUE = 3;
+    public static final int MINOR_RENTED_DAYS = 1;
+
+    /**
+     * New Release type movie.
+     * @param title movie
+     */
+    public NewRelease(final String title) {
         this.setTitle(title);
     }
 
     @Override
-    public double calculateThisAmount(int daysRented) {
-        thisAmount += daysRented * 3;
-        return this.thisAmount;
+    public double calculateThisAmount(final int daysRented) {
+        setAmount(getAmount() + daysRented * NEW_RELEASE_VALUE);
+        return this.getAmount();
     }
 
     @Override
-    public int getFrecuentPoint(int daysRented){
-        if(daysRented > 1) {
-            return frecuentPoint + 1;
+    public int getFrequentPoint(final int daysRented) {
+        if (daysRented > MINOR_RENTED_DAYS) {
+            return this.getFrequentPoint() + 1;
         }
-        return frecuentPoint;
+        return this.getFrequentPoint();
     }
 }

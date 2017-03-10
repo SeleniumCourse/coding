@@ -27,22 +27,29 @@ public class Customer {
      * @param arg new rental to be added to renatl vector
      */
     public void addRental(final Rental arg) {
-        rentals.addElement(arg);
+        this.rentals.addElement(arg);
     }
 
+    /**
+     * get the customer name.
+     * @return the customer name
+     */
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    private void calculateMoviesParameters(){
+    /**
+     * calculate total amount and frequency points.
+     */
+    private void calculateMoviesParameters() {
         Enumeration rentals = this.rentals.elements();
 
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
             //determine amounts for each line
-            totalAmount += each.getMovie().calculateThisAmount(each.getDaysRented());
+            this.totalAmount += each.getMovie().calculateThisAmount(each.getDaysRented());
             // add frequent renter points
-            frequentRenterPoints += each.getMovie().getFrecuentPoint(each.getDaysRented());
+            this.frequentRenterPoints += each.getMovie().getFrequentPoint(each.getDaysRented());
 
             //show figures for this rental
             result.append("\t");
@@ -53,6 +60,10 @@ public class Customer {
         }
     }
 
+    /**
+     * displays customer status.
+     * @return string with customer status
+     */
     public String statement() {
         result.append("Rental Record for " + getName() + "\n");
         calculateMoviesParameters();

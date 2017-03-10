@@ -5,16 +5,24 @@ package com.jalasoft.selenium.alex.movies;
  */
 public class Regular extends Movie {
 
-    public Regular(String title) {
+    public static final int AMOUNT_VALUE = 2;
+    public static final double REGULAR_VALUE = 1.5;
+
+    /**
+     * Regular movie constructor.
+     * @param title movies
+     */
+    public Regular(final String title) {
         this.setTitle(title);
     }
 
     @Override
-    public double calculateThisAmount(int daysRented) {
-        this.thisAmount += 2;
-        if (daysRented > 2) {
-            this.thisAmount += (daysRented - 2) * 1.5;
+    public double calculateThisAmount(final int daysRented) {
+        this.setAmount(this.getAmount() + AMOUNT_VALUE);
+
+        if (daysRented > AMOUNT_VALUE) {
+            this.setAmount(this.getAmount() + (daysRented - AMOUNT_VALUE) * REGULAR_VALUE);
         }
-        return this.thisAmount;
+        return this.getAmount();
     }
 }

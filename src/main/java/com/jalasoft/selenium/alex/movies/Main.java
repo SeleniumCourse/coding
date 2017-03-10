@@ -3,8 +3,20 @@ package com.jalasoft.selenium.alex.movies;
 /**
  * Created by Alex Alvarez on 3/7/2017.
  */
-public class Main {
-    public static void main(String[] args) {
+public final class Main {
+
+    /**
+     * Delete when unit test are done.
+     */
+    private Main() {
+
+    }
+
+    /**
+     * main method.
+     * @param args empty
+     */
+    public static void main(final String[] args) {
         Movie theReverant = new NewRelease("The Reverant");
         Movie terminator = new Regular("Terminator");
 

@@ -4,7 +4,8 @@ package com.jalasoft.selenium.alex.movies;
  * Created by Alex Alvarez on 3/7/2017.
  */
 public class Children extends Movie {
-
+    private static final int MINIMAL_DAYS = 3;
+    private static final double CHILDREN_VALUE = 1.5;
     /**
      * Constructor.
      * @param title Movie title
@@ -15,13 +16,10 @@ public class Children extends Movie {
 
     @Override
     public double calculateThisAmount(final int daysRented) {
-        final double childrenValue = 1.5;
-        final int minimalDays = 3;
-
-        thisAmount += childrenValue;
-        if (daysRented > minimalDays) {
-            thisAmount += (daysRented - minimalDays) * childrenValue;
+        this.setAmount(this.getAmount() + CHILDREN_VALUE);
+        if (daysRented > MINIMAL_DAYS) {
+            this.setAmount(this.getAmount() + (daysRented - MINIMAL_DAYS) * CHILDREN_VALUE);
         }
-        return this.thisAmount;
+        return this.getAmount();
     }
 }
