@@ -1,4 +1,4 @@
-package com.jalasoft.selenium;
+package com.jalasoft.selenium.leonardo.shape;
 
 /**
  * Created by Automation on 3/3/2017.
@@ -8,15 +8,15 @@ public class circleShape extends baseShape {
 
     public circleShape(double radio){   /**constructor instanciar clase*/
         this.radio = radio;
-    }
+    } /** constructor */
 
     public double calculateArea(){
         double returnValue;
-        return returnValue = 3.14*(this.radio*2);
+        return returnValue = PI*(this.radio*this.radio);
     }
 
     public double calculatePerimeter(){
         double returnValue;
-        return returnValue = 2*3.14*this.radio;
+        return returnValue = 2*PI*this.radio;
     }
 }

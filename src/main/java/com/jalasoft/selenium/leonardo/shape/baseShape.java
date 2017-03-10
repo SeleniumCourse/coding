@@ -1,4 +1,4 @@
-package com.jalasoft.selenium;
+package com.jalasoft.selenium.leonardo.shape;
 
 /**
  * Created by Automation on 3/3/2017.
@@ -7,6 +7,8 @@ package com.jalasoft.selenium;
 /** calculo del area y perimetro de un circulo, cuadrado y rectangulo */
 /** 1. herencia 2. abstract class or interface 3. unit test */
 public abstract class baseShape {
+
+    public static final double PI = 3.14;
 
     abstract double calculateArea();
 

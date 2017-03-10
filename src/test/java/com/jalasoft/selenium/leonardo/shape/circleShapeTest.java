@@ -1,4 +1,4 @@
-package com.jalasoft.selenium;
+package com.jalasoft.selenium.leonardo.shape;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -29,7 +29,7 @@ public class circleShapeTest {
         final double actualArea = circle.calculateArea();
 
         //then - assertion
-        final double expectedArea = 10;
+        final double expectedArea = 78.5;
         assertEquals(expectedArea, actualArea, DELTA);
     }
 
@@ -40,7 +40,7 @@ public class circleShapeTest {
         final double actualPerimeter = circle.calculatePerimeter();
 
         //then - assertion
-        final double expectedPerimeter = 10;
+        final double expectedPerimeter = 31.4;
         assertEquals(expectedPerimeter, actualPerimeter, DELTA);
     }
 }

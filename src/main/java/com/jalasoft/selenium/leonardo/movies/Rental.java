@@ -1,4 +1,4 @@
-package com.jalasoft.selenium;
+package com.jalasoft.selenium.leonardo.movies;
 
 class Rental {
     private Movie _movie;

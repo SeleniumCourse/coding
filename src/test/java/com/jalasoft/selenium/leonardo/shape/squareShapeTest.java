@@ -1,4 +1,4 @@
-package com.jalasoft.selenium;
+package com.jalasoft.selenium.leonardo.shape;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -29,7 +29,7 @@ public class squareShapeTest {
         final double actualArea = square.calculateArea();
 
         //then - assertion
-        final double expectedArea = 10;
+        final double expectedArea = 25;
         assertEquals(expectedArea, actualArea, DELTA);
     }
 
@@ -40,7 +40,7 @@ public class squareShapeTest {
         final double actualPerimeter = square.calculatePerimeter();
 
         //then - assertion
-        final double expectedPerimeter = 10;
+        final double expectedPerimeter = 20;
         assertEquals(expectedPerimeter, actualPerimeter, DELTA);
     }
 

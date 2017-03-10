@@ -1,6 +1,6 @@
-package com.jalasoft.selenium;
+package com.jalasoft.selenium.leonardo.movies;
 
-public class Movie {
+public class Movie extends movieType{
     public static final int CHILDRENS = 2;
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;

@@ -1,4 +1,4 @@
-package com.jalasoft.selenium;
+package com.jalasoft.selenium.leonardo.shape;
 
 /**
  * Created by Automation on 3/3/2017.
@@ -7,7 +7,7 @@ public class rectangleShape extends baseShape{
     private double l;
     private double w;
 
-    public rectangleShape(double l, double w){   /**instanciar clase*/
+    public rectangleShape(double l, double w){   /**constructor*/
         this.l = l;
         this.w = w;
     }
