@@ -12,7 +12,7 @@ public class Regular extends MovieAbs {
      * @param title will contain the name of Movie.
      * @param bonus will give to the movie a bonus.
     */
-    public Regular(final String title, final int bonus) {
+    Regular(final String title, final int bonus) {
         super(title, bonus);
     }
 

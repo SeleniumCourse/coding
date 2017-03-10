@@ -13,7 +13,7 @@ public class Rectangle extends Shape {
      * @param altura the Height of shape .
      * @param longitud the length of shape.
      */
-    public Rectangle(final double altura, final double longitud) {
+    Rectangle(final double altura, final double longitud) {
         super();
         this.altura = altura;
         this.longitud = longitud;

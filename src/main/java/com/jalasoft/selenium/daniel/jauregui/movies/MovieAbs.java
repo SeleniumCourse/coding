@@ -13,7 +13,7 @@ abstract class MovieAbs implements MovieInt {
      * @param title will have the name of movie.
      * @param bonus will have the value of bonus.
      */
-    public MovieAbs(final String title, final int bonus) {
+    MovieAbs(final String title, final int bonus) {
         this.title = title;
         this.bonus = bonus;
     }

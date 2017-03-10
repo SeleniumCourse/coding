@@ -10,7 +10,7 @@ public class NewRelease extends MovieAbs {
      * @param title will contain the name of Movie.
      * @param bonus will give to the movie a bonus.
     */
-    public NewRelease(final String title, final int bonus) {
+    NewRelease(final String title, final int bonus) {
         super(title, bonus);
     }
 
