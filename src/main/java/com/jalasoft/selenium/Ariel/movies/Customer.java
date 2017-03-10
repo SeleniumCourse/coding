@@ -15,7 +15,7 @@ class Customer {
      * Creates a Children movie with the given title.
      * @param name          the name of the customer.
      */
-    public Customer(final String name) {
+    Customer(final String name) {
         this.name = name;
     }
 
