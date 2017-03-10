@@ -1,19 +1,35 @@
 package com.jalasoft.selenium.daniel.jauregui.movies;
 
+/**
+ * Rental Class.
+ * @author Daniel Jauregui
+ */
 class Rental {
-    private final aMovie _movie;
-    private final int _daysRented;
-
-    public Rental(aMovie movie, int daysRented) {
-        _movie = movie;
-        _daysRented = daysRented;
+    private final MovieAbs movie;
+    private final int daysRented;
+    /**
+     * Constructor of Class.
+     * @param movie : Object of Abstract Class MovieAbs.
+     * @param daysRented : Days of movie was rented.
+     */
+    public Rental(final MovieAbs movie, final int daysRented) {
+        this.movie = movie;
+        this.daysRented = daysRented;
     }
 
+    /**
+     * Get the rented days of the movie rented.
+     * @return integer name as day.
+     */
     public int getDaysRented() {
-        return _daysRented;
+        return this.daysRented;
     }
 
-    public aMovie getMovie() {
-        return _movie;
+    /**
+     * Get the object movie.
+     * @return an object of movie associated to this class.
+     */
+    public MovieAbs getMovie() {
+        return this.movie;
     }
 }
