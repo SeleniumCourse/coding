@@ -1,16 +1,29 @@
 package com.jalasoft.selenium.daniel.jauregui.movies;
 
-public class NewRelease extends aMovie {
-
-    public NewRelease(String _title, int bonus) {
-        super(_title, bonus);
+/**
+ * Class NewRelease.
+ */
+public class NewRelease extends MovieAbs {
+    private final int restOfRentedDays = 3;
+    /**
+    * Constructor of Children.
+     * @param title will contain the name of Movie.
+     * @param bonus will give to the movie a bonus.
+    */
+    public NewRelease(final String title, final int bonus) {
+        super(title, bonus);
     }
 
+    /**
+     *
+     * @param rentedDays: number of day where movie was rented.
+     * @return
+     */
     @Override
-    public double calculateRate(int rentedDays, double thisAmount) {
-        if (rentedDays <= 0) { return 0; }
-        thisAmount += rentedDays * 3;
-        return thisAmount;
+    public double calculateRate(final int rentedDays) {
+        if (rentedDays <= 0) {
+            return 0;
+        }
+        return (double) (rentedDays * restOfRentedDays);
     }
-    
 }

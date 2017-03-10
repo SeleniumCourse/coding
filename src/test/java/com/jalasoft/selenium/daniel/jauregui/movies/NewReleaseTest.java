@@ -1,7 +1,5 @@
 package com.jalasoft.selenium.daniel.jauregui.movies;
 
-import com.jalasoft.selenium.daniel.jauregui.movies.aMovie;
-import com.jalasoft.selenium.daniel.jauregui.movies.NewRelease;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -12,8 +10,7 @@ import static org.junit.Assert.*;
  */
 public class NewReleaseTest {
     
-    private aMovie instance;
-    private final double thisAmount = 0.0;
+    private MovieAbs instance;
     private final double DELTA = 0.0;
 
     @Before
@@ -30,7 +27,7 @@ public class NewReleaseTest {
         //When
         int rentedDays = 1;
         double expResult = 3;
-        double result = instance.calculateRate(rentedDays, thisAmount);
+        double result = instance.calculateRate(rentedDays);
         //Then
         System.out.println("testCalculateRateWithRentedDays1Day");
         assertEquals(expResult, result, DELTA);
@@ -42,7 +39,7 @@ public class NewReleaseTest {
         //When
         int rentedDays = 7;
         double expResult = 21;
-        double result = instance.calculateRate(rentedDays, thisAmount);
+        double result = instance.calculateRate(rentedDays);
         //Then
         System.out.println("testCalculateRateWithRentedDays1Week");
         assertEquals(expResult, result, DELTA);
@@ -54,7 +51,7 @@ public class NewReleaseTest {
         //When
         int rentedDays = 30;
         double expResult = 90;
-        double result = instance.calculateRate(rentedDays, thisAmount);
+        double result = instance.calculateRate(rentedDays);
         //Then
         System.out.println("testCalculateRateWithRentedDays1Month");
         assertEquals(expResult, result, DELTA);
@@ -66,7 +63,7 @@ public class NewReleaseTest {
         //When
         int rentedDays = 0;
         double expResult = 0;
-        double result = instance.calculateRate(rentedDays, thisAmount);
+        double result = instance.calculateRate(rentedDays);
         //Then
         System.out.println("testCalculateRateWithRentedDays0d");
         assertEquals(expResult, result, DELTA);

@@ -1,10 +1,10 @@
 package com.jalasoft.selenium.daniel.jauregui.shapes;
 
-import com.jalasoft.selenium.daniel.jauregui.shapes.iShape;
 import com.jalasoft.selenium.daniel.jauregui.shapes.Rectangle;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import com.jalasoft.selenium.daniel.jauregui.shapes.ShapeInt;
 
 /**
  *
@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
  */
 public class RectanguloTest {
     
-    private iShape instance;
+    private ShapeInt instance;
     private final double DELTA = 0.0;
     
     public RectanguloTest() {

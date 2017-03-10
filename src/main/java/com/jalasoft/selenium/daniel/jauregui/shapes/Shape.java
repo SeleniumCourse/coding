@@ -1,7 +1,11 @@
 package com.jalasoft.selenium.daniel.jauregui.shapes;
 
-public abstract class Shape implements iShape {
-// podria entrar alguna implementacion para heredar    
+/**
+ * Shape Abstract class.
+ * @author Daniel Jauregui
+ */
+abstract class Shape implements ShapeInt {
+// podria entrar alguna implementacion para heredar.
 }
 
 

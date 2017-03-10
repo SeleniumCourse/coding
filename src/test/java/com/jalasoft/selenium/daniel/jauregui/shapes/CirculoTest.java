@@ -1,10 +1,10 @@
 package com.jalasoft.selenium.daniel.jauregui.shapes;
 
 import com.jalasoft.selenium.daniel.jauregui.shapes.Circle;
-import com.jalasoft.selenium.daniel.jauregui.shapes.iShape;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import com.jalasoft.selenium.daniel.jauregui.shapes.ShapeInt;
 
 /**
  *
@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
  */
 public class CirculoTest {
     
-    private iShape instance;
+    private ShapeInt instance;
     private final double DELTA = 0.0;
     
     public CirculoTest() {

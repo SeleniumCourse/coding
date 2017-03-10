@@ -2,38 +2,60 @@ package com.jalasoft.selenium.daniel.jauregui.movies;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
+/**
+ * Customer class.
+ * @author Daniel Jauregui
+ */
 class Customer {
-    private final String _name;
-    private final ArrayList<Rental> _rentals = new ArrayList();
-
-    public Customer(String name) {
-        _name = name;
+    private final String name;
+    private final ArrayList<Rental> rentals = new ArrayList();
+    /**
+     * Constructor of Customer class.
+     * @param name : Name of the customer.
+     */
+    public Customer(final String name) {
+        this.name = name;
     }
 
-    public void addRental(Rental arg) {
-        _rentals.add(arg);
+    /**
+     * addRental will add the movies that customer is renting.
+     * @param arg : will have a Rental object.
+     */
+    public void addRental(final Rental arg) {
+        this.rentals.add(arg);
     }
-    
+
+    /**
+     * getRentals.
+     * @return : Get Object with all rentals of customer.
+     */
     public ArrayList getRentals() {
-        return _rentals;
+        return this.rentals;
     }
 
+    /**
+     * Get the Name of Customer.
+     * @return : Will return the name of Customer.
+     */
     public String getName() {
-        return _name;
+        return this.name;
     }
 
+    /**
+     * Generate the Statement Rentals of Customer.
+     * @return : Will return the summary of Customer Statement
+     */
     public String statement() {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
-        Iterator<Rental> rentals = _rentals.iterator();
+        Iterator<Rental> rentals = this.rentals.iterator();
         String result = "Rental Record for " + getName() + "\n";
         Rental each;
         double thisAmount;
         while (rentals.hasNext()) {
             each = (Rental) rentals.next();
             // Get rate of movie
-            thisAmount = each.getMovie().calculateRate(each.getDaysRented(), 0);
+            thisAmount = each.getMovie().calculateRate(each.getDaysRented());
             // add frequent renter points and bonus for a two day new release rental
             frequentRenterPoints += each.getMovie().calculateBonus(each.getDaysRented());
             //show figures for this rental
