@@ -13,7 +13,7 @@ class Customer {
      * Constructor of Customer class.
      * @param name : Name of the customer.
      */
-    public Customer(final String name) {
+    Customer(final String name) {
         this.name = name;
     }
 

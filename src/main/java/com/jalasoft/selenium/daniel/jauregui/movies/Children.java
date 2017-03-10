@@ -11,7 +11,7 @@ public class Children extends MovieAbs {
      * @param title will contain the name of Movie.
      * @param bonus will give to the movie a bonus.
     */
-    public Children(final String title, final int bonus) {
+    Children(final String title, final int bonus) {
         super(title, bonus);
     }
 

@@ -12,7 +12,7 @@ class Rental {
      * @param movie : Object of Abstract Class MovieAbs.
      * @param daysRented : Days of movie was rented.
      */
-    public Rental(final MovieAbs movie, final int daysRented) {
+    Rental(final MovieAbs movie, final int daysRented) {
         this.movie = movie;
         this.daysRented = daysRented;
     }

@@ -11,7 +11,7 @@ public class Square extends Rectangle {
      * Constructor.
      * @param altura the Height of shape .
      */
-    public Square(final double altura) {
+    Square(final double altura) {
         super(altura, altura);
         this.altura = altura;
     }

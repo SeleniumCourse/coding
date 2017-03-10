@@ -10,7 +10,7 @@ public class Circle extends Shape {
      * Constructor.
      * @param radio will get the radio of circle.
      */
-    public Circle(final double radio) {
+    Circle(final double radio) {
         this.radio = radio;
     }
 
