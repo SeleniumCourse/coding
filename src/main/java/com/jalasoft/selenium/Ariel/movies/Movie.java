@@ -20,7 +20,7 @@ public abstract class Movie {
      * @param daysRented    the days the movie was rented.
      * @return              the charge for the rental of the movie.
      */
-    public abstract double calculateAmount(final int daysRented);
+    public abstract double calculateAmount(int daysRented);
 
     /**
      * Calculates the frequent renter points earned by renting the movie.
