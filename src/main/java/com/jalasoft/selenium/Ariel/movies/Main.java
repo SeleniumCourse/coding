@@ -1,7 +1,7 @@
-package com.jalasoft.selenium.Ariel.movies;
+package com.jalasoft.selenium.ariel.movies;
 
 /**
- * Created by Ariel Mattos on 3/6/2017.
+ * Created by ariel Mattos on 3/6/2017.
  */
 public final class Main {
 

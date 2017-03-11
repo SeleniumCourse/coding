@@ -1,7 +1,7 @@
-package com.jalasoft.selenium.Ariel.shape;
+package com.jalasoft.selenium.ariel.shape;
 
 /**
- * Created by Ariel Mattos on 3/3/2017.
+ * Created by ariel Mattos on 3/3/2017.
  */
 public abstract class Shape {
 

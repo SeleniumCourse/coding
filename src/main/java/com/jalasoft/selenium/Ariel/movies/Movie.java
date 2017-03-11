@@ -1,7 +1,7 @@
-package com.jalasoft.selenium.Ariel.movies;
+package com.jalasoft.selenium.ariel.movies;
 
 /**
- * Created by Ariel Mattos on 3/6/2017.
+ * Created by ariel Mattos on 3/6/2017.
  */
 public abstract class Movie {
     static final int FREQUENT_RENTER_POINTS = 1;

@@ -1,4 +1,4 @@
-package com.jalasoft.selenium.Ariel.shape;
+package com.jalasoft.selenium.ariel.shape;
 
 import org.junit.Before;
 import org.junit.Test;

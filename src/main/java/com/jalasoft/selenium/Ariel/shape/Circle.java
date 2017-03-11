@@ -1,4 +1,4 @@
-package com.jalasoft.selenium.Ariel.shape;
+package com.jalasoft.selenium.ariel.shape;
 
 /**
  * Created by xain on 3/3/2017.

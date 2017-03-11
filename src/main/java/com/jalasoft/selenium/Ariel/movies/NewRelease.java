@@ -1,4 +1,4 @@
-package com.jalasoft.selenium.Ariel.movies;
+package com.jalasoft.selenium.ariel.movies;
 
 /**
  * Created by xain on 3/6/2017.
