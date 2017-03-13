@@ -4,18 +4,19 @@ package com.jalasoft.selenium.alejandro;
  * Created by Alejandro Alcocer on 3/6/2017.
  */
 public class Circle extends Shape {
-    public double radius;
-    public  Circle(double radius){
-        this.radius=radius;
+    private double radius;
+    private int constant = 2;
+    public  Circle(double radius) {
+        this.radius = radius;
     }
 
     @Override
     public double calculateArea() {
-        return 2*Math.PI*Math.pow(radius, 2);
+        return constant * Math.PI * Math.pow(radius, constant);
     }
 
     @Override
     public double calculatePerimeter() {
-        return 2*Math.PI*radius;
+        return constant * Math.PI * radius;
     }
 }

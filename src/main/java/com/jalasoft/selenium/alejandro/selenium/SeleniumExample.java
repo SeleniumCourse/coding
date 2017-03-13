@@ -11,9 +11,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 public class SeleniumExample {
     @Test
-    public void testSelenium()
-    {
-        System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+    public void testSelenium() {
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://only-testing-blog.blogspot.in/2013/09/test.html");
 
@@ -26,13 +25,11 @@ public class SeleniumExample {
         WebElement bikeCheckBox = driver.findElement(By.cssSelector("input[value='Bike']"));
 
         //clear
-        if (bikeCheckBox.isSelected())
-        {
+        if (bikeCheckBox.isSelected()) {
             bikeCheckBox.click();
         }
         //select bike
-        if (!bikeCheckBox.isSelected())
-        {
+        if (!bikeCheckBox.isSelected()) {
             bikeCheckBox.click();
         }
 
@@ -44,7 +41,5 @@ public class SeleniumExample {
 
         /*System.out.println(firstNameTextField.isEnabled());
         System.out.println(lastNameTextField.isEnabled());*/
-
-
     }
 }
