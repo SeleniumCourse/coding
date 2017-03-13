@@ -1,21 +1,40 @@
 package com.jalasoft.selenium.ronald.movies;
 
+/**
+ * Rental class.
+ * @author ronald_butron
+ */
 class Rental {
-    private Movie _movie;
-    private int _daysRented;
 
-    public Rental(Movie movie, int daysRented) {
-        _movie = movie;
-        _daysRented = daysRented;
+    private Movie movie;
+    private int daysRented;
+
+    /**
+     * Rental constructor.
+     *
+     * @param movie an object.
+     * @param daysRented number days rented.
+     */
+    Rental(final Movie movie, final int daysRented) {
+        this.movie = movie;
+        this.daysRented = daysRented;
     }
 
+    /**
+     * This method get number of days rented.
+     *
+     * @return days rented.
+     */
     public int getDaysRented() {
-        return _daysRented;
+        return daysRented;
     }
 
+    /**
+     * This method get Movie object.
+     *
+     * @return movie object.
+     */
     public Movie getMovie() {
-        return _movie;
+        return movie;
     }
-
-
 }

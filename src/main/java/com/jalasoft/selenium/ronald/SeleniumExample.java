@@ -15,6 +15,9 @@ import java.util.List;
  */
 public class SeleniumExample {
 
+    /**
+     * Selenium example.
+     */
     @Test
     public void testSelenium() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/driver/chromeDriver");
@@ -47,7 +50,8 @@ public class SeleniumExample {
         Select selectBox = new Select(driver.findElement(By.xpath("//Select")));
         selectBox.selectByValue("UK");
         selectBox.selectByVisibleText("Opel");
-        selectBox.selectByIndex(3);
+        final int indexNumber = 3;
+        selectBox.selectByIndex(indexNumber);
 
         Select selectTable = new Select(driver.findElement(By.name("FromLB")));
         WebElement buttonA = driver.findElement(By.cssSelector("input[value='->']"));

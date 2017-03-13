@@ -1,6 +1,5 @@
-package com.jala.selenium;
+package com.jalasoft.selenium.ronald.shape;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,43 +7,50 @@ import static org.junit.Assert.assertEquals;
 
 
 /**
+ * CircleTest class.
  * @author bsronald on 3/3/17.
  */
 public class CircleTest {
 
     private static final float DELTA = 0;
-    private AbstractFigure circulo;
+    private AbstractFigure circle;
 
+    /**
+     * Set up environment.
+     */
     @Before
     public void setUp() {
 
         //Given
         final float radio = 5;
-        circulo = new Circulo(radio);
+        circle = new Circle(radio);
     }
 
+    /**
+     * Test: calculate area.
+     */
     @Test
-    public void testAreaCirculo(){
+    public void testCircleArea() {
 
         // When
-        final float ActualArea = circulo.calculateArea();
+        final float actualArea = circle.calculateArea();
 
         // Then
         final float expectedArea = (float) 78.53982;
-        assertEquals(expectedArea, ActualArea, DELTA);
-
+        assertEquals(expectedArea, actualArea, DELTA);
     }
 
+    /**
+     * Test calculate perimeter.
+     */
     @Test
-    public void testPerimetroCirculo(){
+    public void testCirclePerimeter() {
 
         // When
-        final float ActualPerimetro = circulo.calculatePerimetro();
+        final float actualPerimeter = circle.calculatePerimeter();
 
         // Then
         final float expectedArea = (float) 31.415926;
-        assertEquals(expectedArea, ActualPerimetro, DELTA);
-
+        assertEquals(expectedArea, actualPerimeter, DELTA);
     }
-
 }

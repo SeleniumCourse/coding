@@ -5,13 +5,27 @@ package com.jalasoft.selenium.ronald.movies;
  */
 public class NewReleaseMovie extends Movie {
 
+    private static final double AMOUNT = 3;
 
-    public NewReleaseMovie(String title, int priceCode) {
-        _title = title;
-        _priceCode = priceCode;
+    /**
+     * Constructor class.
+     *
+     * @param title movie's name.
+     * @param priceCode price.
+     */
+    NewReleaseMovie(final String title, final int priceCode) {
+        this.title = title;
+        this.priceCode = priceCode;
     }
 
-    double calculateAmount(int daysRented) {
-        return daysRented * 3;
+    /**
+     * This method calculate amount to pay.
+     *
+     * @param daysRented number of days rented.
+     * @return amount value.
+     */
+    double calculateAmount(final int daysRented) {
+
+        return daysRented * AMOUNT;
     }
 }

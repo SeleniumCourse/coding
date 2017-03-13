@@ -1,10 +1,11 @@
-package com.jala.selenium;
+package com.jalasoft.selenium.ronald.shape;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
+ * RectangleTest class.
  * @author bsronald on 3/6/17.
  */
 public class RectangleTest {
@@ -12,16 +13,22 @@ public class RectangleTest {
     private static final float DELTA = 0;
     private AbstractFigure rectangle;
 
+    /**
+     * Set up environment.
+     */
     @Before
     public void setUp() {
         // Given
         final float base = 5;
-        final float altura = 3;
-        rectangle = new Rectangulo(base, altura);
+        final float length = 3;
+        rectangle = new Rectangle(base, length);
 
     }
 
 
+    /**
+     * Test: calculate area.
+     */
     @Test
     public void testRectangleCalculateArea() {
 
@@ -31,18 +38,20 @@ public class RectangleTest {
         //Then
         final float expectedArea = 15;
         Assert.assertEquals(expectedArea, actualArea, DELTA);
-
     }
 
+    /**
+     * Test calculate perimeter.
+     */
     @Test
     public void testRectangleCalculatePerimeter() {
 
         // When
-        float actualPerimetro = rectangle.calculatePerimetro();
+        float actualPerimeter = rectangle.calculatePerimeter();
 
         //Then
-        final float expectedPerimetro = 16;
-        Assert.assertEquals(actualPerimetro, expectedPerimetro, DELTA);
+        final float expectedPerimeter = 16;
+        Assert.assertEquals(actualPerimeter, expectedPerimeter, DELTA);
     }
 
 

@@ -3,32 +3,49 @@ package com.jalasoft.selenium.ronald.movies;
 import java.util.Enumeration;
 import java.util.Vector;
 
+/**
+ * Customer class.
+ * @author ronald_butron
+ */
 class Customer {
     private String name;
     private Vector rentals = new Vector();
 
-    public Customer(String name) {
+    /**
+     * Constructor.
+     *
+     * @param name customer name.
+     */
+    Customer(final String name) {
         this.name = name;
     }
 
-    public void addRental(Rental arg) {
+    /**
+     * Add rental.
+     * @param arg Rental objected
+     */
+    public void addRental(final Rental arg) {
         rentals.addElement(arg);
     }
 
+    /**
+     * Get costumer name.
+     * @return customer name
+     */
     public String getName() {
         return name;
     }
 
     /**
-     * Calculate statement value fo account
+     * Calculate statement value fo account.
      *
-     * @return statement of account
+     * @return statement of account.
      */
     public String statement() {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
         Enumeration rentals = this.rentals.elements();
-        String result = "Rental Record for " + getName() + "\n";
+        StringBuilder result = new StringBuilder("Rental Record for " + getName() + "\n");
 
         while (rentals.hasMoreElements()) {
             double thisAmount = 0;
@@ -44,13 +61,13 @@ class Customer {
             }
 
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
+            result.append("\t").append(each.getMovie().getTitle()).append("\t").append(thisAmount).append("\n");
             totalAmount += thisAmount;
         }
 
         //add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
-        return  result;
+        result.append("Amount owed is ").append(totalAmount).append("\n");
+        result.append("You earned ").append(String.valueOf(frequentRenterPoints)).append(" frequent renter points");
+        return  result.toString();
     }
 }

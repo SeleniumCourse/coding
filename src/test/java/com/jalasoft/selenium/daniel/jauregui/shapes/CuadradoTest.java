@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 /**
- * CuadradoTest.
+ * SquareTest.
  * @author daniel jauregui
  */
 public class CuadradoTest {
