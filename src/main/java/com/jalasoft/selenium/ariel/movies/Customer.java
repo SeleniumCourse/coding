@@ -41,11 +41,8 @@ class Customer {
      */
     public String statement() {
         StringBuilder report = new StringBuilder();
-        report.append("Rental Record for ").append(getName()).append("\n");
-        for (Rental rental : rentals) {
-            report.append('\t').append(rental.calculateFigure());
-        }
-
+        report.append("Rental Record for ").append(name).append("\n");
+        rentals.forEach(rental -> report.append('\t').append(rental.calculateFigure()));
         report.append("Amount owed is ").append(calculateTotalAmount()).append('\n');
         report.append("You earned ").append(calculateFrequentRenterPoints()).append(" frequent renter points");
 
@@ -57,13 +54,7 @@ class Customer {
      * @return              the total amount owed by the customer.
      */
     public double calculateTotalAmount() {
-        double totalAmount = 0;
-
-        for (Rental rental : rentals) {
-            totalAmount += rental.getMovie().calculateAmount(rental.getDaysRented());
-        }
-
-        return totalAmount;
+        return rentals.stream().mapToDouble(Rental::calculateAmount).sum();
     }
 
     /**
@@ -71,13 +62,7 @@ class Customer {
      * @return              the total frequent renter points of the customer.
      */
     public int calculateFrequentRenterPoints() {
-        int points = 0;
-
-        for (Rental rental : rentals) {
-            points += rental.getMovie().calculateFrequentRenterPoints(rental.getDaysRented());
-        }
-
-        return points;
+        return rentals.stream().mapToInt(Rental::calculateFrequentRenterPoints).sum();
     }
 }
 

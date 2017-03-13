@@ -45,4 +45,20 @@ class Rental {
 
         return rentalFigure.toString();
     }
+
+    /**
+     * Calculates the amount owed by the rental of the movie based on the days it was rented.
+     * @return              the charge for the rental of the movie.
+     */
+    public double calculateAmount() {
+        return movie.calculateAmount(daysRented);
+    }
+
+    /**
+     * Calculates the frequent renter points earned by renting the movie.
+     * @return              the frequent renter points earned by renting the movie.
+     */
+    public int calculateFrequentRenterPoints() {
+        return movie.calculateFrequentRenterPoints(daysRented);
+    }
 }
