@@ -18,6 +18,6 @@ class ShapesCalculator {
     public static void main(final String[] args) {
         final double radio = 5.2;
         ShapeInt c = new Circle(radio);
-        System.out.print(" ===> El Area del Circle es: " + c.calculateArea());
+        System.out.print(" ===> El Area del Circulo es: " + c.calculateArea());
     }
 }
