@@ -32,7 +32,6 @@ public class SeleniumExample {
         {
             bikeCheckBox.click();
         }
-//test
         //clear
         /*if (bikeCheckBox.isSelected())
         {
