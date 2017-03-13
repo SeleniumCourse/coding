@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -13,9 +14,8 @@ import org.openqa.selenium.support.ui.Select;
  */
 public class SeleniumExample {
     @Test
-    public void testSelenium()
-    {
-        System.setProperty("webdriver.chrome.driver","chromedriver.exe");
+    public void testSelenium(){
+        System.setProperty("webdriver.chrome.driver" , "chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://only-testing-blog.blogspot.in/2013/09/test.html");
 
@@ -28,8 +28,7 @@ public class SeleniumExample {
         WebElement bikeCheckBox = driver.findElement(By.cssSelector("input[value='Bike']"));
 
         //select bike
-        if (!bikeCheckBox.isSelected())
-        {
+        if (!bikeCheckBox.isSelected()){
             bikeCheckBox.click();
         }
         //clear
@@ -52,14 +51,13 @@ public class SeleniumExample {
 
         Select selectCountryReceive = new Select(driver.findElement(By.name("ToLB")));
         selectCountryReceive.selectByIndex(0);
-        WebElement actualItem= selectCountryReceive.getFirstSelectedOption();
+        WebElement actualItem = selectCountryReceive.getFirstSelectedOption();
         //actualItem.click();
-
         String actualResult = actualItem.getText();
-        System.out.println("this is the actual result:"+actualResult);
+        System.out.println("this is the actual result:" + actualResult);
         String expectedResult = "Germany";
-        System.out.println("this is the expected result:"+expectedResult);
-        Assert.assertEquals("Germany","Germany");
+        System.out.println("this is the expected result:" + expectedResult);
+        Assert.assertEquals("Germany", "Germany");
 
 
         /*selectBox.selectByVisibleText("Opel");
