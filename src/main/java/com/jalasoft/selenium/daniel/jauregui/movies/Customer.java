@@ -9,12 +9,19 @@ import java.util.Iterator;
 class Customer {
     private final String name;
     private final ArrayList<Rental> rentals = new ArrayList<Rental>();
+    private double totalAmount;
+    private int frequentRenterPoints;
+    private StringBuilder statement;
+
     /**
      * Constructor of Customer class.
      * @param name : Name of the customer.
      */
     Customer(final String name) {
         this.name = name;
+        this.totalAmount = 0;
+        this.frequentRenterPoints = 0;
+        this.statement.append("ental Record for ").append(this.name).append("\n");
     }
 
     /**
@@ -23,6 +30,14 @@ class Customer {
      */
     public void addRental(final Rental arg) {
         this.rentals.add(arg);
+    }
+
+    /**
+     * getStatement.
+     * @return the string of statement of customer
+     */
+    public StringBuilder getStatement() {
+        return statement;
     }
 
     /**
@@ -43,35 +58,61 @@ class Customer {
 
     /**
      * Generate the Statement Rentals of Customer.
-     * @return : Will return the summary of Customer Statement
      */
-    public String statement() {
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
+    public void statement() {
         Iterator<Rental> rentalsLocal = this.rentals.iterator();
-        Rental each;
-        double thisAmount;
-        StringBuilder result = new StringBuilder();
-        result.append("Rental Record for ").append(getName()).append("\n");
         while (rentalsLocal.hasNext()) {
-            each = (Rental) rentalsLocal.next();
-            // Get rate of movie
-            thisAmount = each.getMovie().calculateRate(each.getDaysRented());
-            // add frequent renter points, bonus for two day new release rental
-            frequentRenterPoints += each.getMovie()
-                    .calculateBonus(each.getDaysRented());
-            //show figures for this rental
-            result.append("\t").append(each.getMovie().getTitle())
-                    .append("\t").append(String.valueOf(thisAmount))
-                    .append("\n");
-            totalAmount += thisAmount;
+            sumAmount(calculateAmount((Rental) rentalsLocal.next()));
+            calculateFrequentRenterPoints((Rental) rentalsLocal.next());
+            appedStatement((Rental) rentalsLocal.next());
         }
-        //add footer lines
-        result.append("Amount owed is ").append(String.valueOf(totalAmount))
-                .append("\n");
-        result.append("You earned ")
-                .append(String.valueOf(frequentRenterPoints))
+        printStatement();
+    }
+
+    /**
+     * appedStatement.
+     * @param each movie of customer.
+     */
+    public void appedStatement(final Rental each) {
+        this.statement.append("\t").append(each.getMovie().getTitle())
+                .append("\t").append(calculateAmount(each)).append("\n");
+    }
+
+    /**
+     * calculateFrequentRenterPoints.
+     * @param each movie of customer.
+     */
+    public void calculateFrequentRenterPoints(final Rental each) {
+        this.frequentRenterPoints += each.getMovie()
+                .calculateBonus(each.getDaysRented());
+    }
+
+    /**
+     * sumAmount.
+     * @param thisAmount movie rented.
+     */
+    public void sumAmount(final double thisAmount) {
+        this.totalAmount += thisAmount;
+    }
+
+    /**
+     * calculateAmount.
+     * @param each movie of customer.
+     * @return calculate amount for current movie.
+     */
+    public double calculateAmount(final Rental each) {
+        return each.getMovie().calculateRate(each.getDaysRented());
+    }
+
+    /**
+     * printStatement.
+     */
+    public void printStatement() {
+        this.statement.append("Amount owed is ")
+                .append(String.valueOf(this.totalAmount)).append("\n")
+                .append("You earned ")
+                .append(String.valueOf(this.frequentRenterPoints))
                 .append(" frequent renter points");
-        return result.toString();
+        System.out.println(this.statement);
     }
 }
