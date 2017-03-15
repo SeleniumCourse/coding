@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Customer {
-    private String name;
-    private List <Rental> rentals;
+    private final String name;
+    private List<Rental> rentals;
 
-    public Customer(String name) {
+    public Customer(final String name) {
         this.name = name;
-        rentals = new ArrayList() ;
+        rentals = new ArrayList();
     }
 
-    public void addRental(Rental arg) {
+    public void addRental(final Rental arg) {
         rentals.add(arg);
     }
 
