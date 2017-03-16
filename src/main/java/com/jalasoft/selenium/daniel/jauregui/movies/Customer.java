@@ -11,7 +11,7 @@ class Customer {
     private final ArrayList<Rental> rentals = new ArrayList<Rental>();
     private double totalAmount;
     private int frequentRenterPoints;
-    private StringBuilder statement;
+    private String statement;
 
     /**
      * Constructor of Customer class.
@@ -21,7 +21,7 @@ class Customer {
         this.name = name;
         this.totalAmount = 0;
         this.frequentRenterPoints = 0;
-        this.statement.append("ental Record for ").append(this.name).append("\n");
+        this.statement = "";
     }
 
     /**
@@ -30,14 +30,6 @@ class Customer {
      */
     public void addRental(final Rental arg) {
         this.rentals.add(arg);
-    }
-
-    /**
-     * getStatement.
-     * @return the string of statement of customer
-     */
-    public StringBuilder getStatement() {
-        return statement;
     }
 
     /**
@@ -62,11 +54,11 @@ class Customer {
     public void statement() {
         Iterator<Rental> rentalsLocal = this.rentals.iterator();
         while (rentalsLocal.hasNext()) {
-            sumAmount(calculateAmount((Rental) rentalsLocal.next()));
-            calculateFrequentRenterPoints((Rental) rentalsLocal.next());
-            appedStatement((Rental) rentalsLocal.next());
+            Rental each = (Rental) rentalsLocal.next();
+            sumAmount(calculateAmount(each));
+            calculateFrequentRenterPoints(each);
+            appedStatement(each);
         }
-        printStatement();
     }
 
     /**
@@ -74,8 +66,10 @@ class Customer {
      * @param each movie of customer.
      */
     public void appedStatement(final Rental each) {
-        this.statement.append("\t").append(each.getMovie().getTitle())
-                .append("\t").append(calculateAmount(each)).append("\n");
+        this.statement =  new StringBuilder().append(this.statement)
+                .append("\t").append(each.getMovie().getTitle())
+                .append("\t").append(String.valueOf(calculateAmount(each)))
+                .append("\n").toString();
     }
 
     /**
@@ -106,13 +100,17 @@ class Customer {
 
     /**
      * printStatement.
+     * @return the text of Statement
      */
-    public void printStatement() {
-        this.statement.append("Amount owed is ")
-                .append(String.valueOf(this.totalAmount)).append("\n")
+    public String printStatement() {
+        return new StringBuilder().append("Rental Record for ")
+                .append(getName()).append("\n")
+                .append(this.statement)
+                .append("Amount owed is ")
+                .append(String.valueOf(this.totalAmount))
+                .append("\n")
                 .append("You earned ")
                 .append(String.valueOf(this.frequentRenterPoints))
-                .append(" frequent renter points");
-        System.out.println(this.statement);
+                .append(" frequent renter points").toString();
     }
 }

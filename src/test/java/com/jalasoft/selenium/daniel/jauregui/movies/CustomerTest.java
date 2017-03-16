@@ -50,7 +50,7 @@ public class CustomerTest {
     public void testStatementWithoutBonus() {
         //When
         instance.statement();
-        String result = instance.getStatement().toString();
+        String result = instance.printStatement();
         System.out.println(result);
         String expResult = "Rental Record for TestClient\n";
         expResult += "\tLego Batman\t21.0\n";
@@ -77,7 +77,7 @@ public class CustomerTest {
             each.getMovie().setBonus(bonus);
         }
         instance.statement();
-        String result = instance.getStatement().toString();
+        String result = instance.printStatement();
         System.out.println(result);
         String expResult = "Rental Record for TestClient\n";
         expResult += "\tLego Batman\t21.0\n";
