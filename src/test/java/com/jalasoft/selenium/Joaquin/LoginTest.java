@@ -35,5 +35,8 @@ public class LoginTest {
         OportunityPage opportunityPage = home.clikOportunitiesTab();
         CreateOportunityPage createOpportunityPage = opportunityPage.clickNewOpportunity();
         createOpportunityPage.setOpportunityNameTextField("joaquin");
+        createOpportunityPage.setOpportunityAccountTextField("Testamerica Inc");
+        createOpportunityPage.setCloseDate("10/07/2018");
+        createOpportunityPage.selectStage("Qualification");
     }
 }

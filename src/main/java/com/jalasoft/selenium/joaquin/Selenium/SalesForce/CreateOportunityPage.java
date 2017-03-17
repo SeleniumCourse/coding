@@ -3,6 +3,7 @@ package com.jalasoft.selenium.joaquin.Selenium.SalesForce;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
@@ -10,9 +11,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class CreateOportunityPage {
 
-    public WebDriver driver;
-    public WebDriverWait wait;
-    public By opportunityTextField = By.xpath("//input[contains(@maxlength,'120')]");
+    private WebDriver driver;
+    private WebDriverWait wait;
+    private By opportunityTextField = By.xpath("//span[text()='Opportunity Name']/ancestor::label/following-sibling::input");
+    private By opportunityAccountTextField = By.cssSelector("input[placeholder = 'Search Accounts']");
+    private By closeDateField = By.cssSelector("div[class='form-element'] input");
+    private By stageSelect = By.cssSelector("div[aria-label='Stage - Stage*Qualification'] a[class='select']");
 
     public CreateOportunityPage(WebDriver driver, WebDriverWait wait)
     {
@@ -24,5 +28,21 @@ public class CreateOportunityPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(opportunityTextField));
         driver.findElement(opportunityTextField).sendKeys(opportunityName);
     }
-
+    public void setOpportunityAccountTextField(String opportunityAccount)
+    {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(opportunityAccountTextField));
+        driver.findElement(opportunityAccountTextField).click();
+        driver.findElement(By.cssSelector(String.format("div[title='%s']", opportunityAccount))).click();
+    }
+    public void setCloseDate(String date)
+    {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(closeDateField));
+        driver.findElement(closeDateField).sendKeys(date);
+    }
+    public void selectStage(String selection)
+    {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(stageSelect));
+        driver.findElement(stageSelect).click();
+        driver.findElement(By.cssSelector(String.format("a[title='%s']", selection))).click();
+    }
 }
