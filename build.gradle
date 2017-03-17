@@ -23,10 +23,13 @@ dependencies {
 
 // Checkstyle configuration
 checkstyle {
-    toolVersion = '6.1.1'
+    toolVersion = '7.6'
 }
 
 // FindBugs configuration
+findbugs {
+    toolVersion = "3.0.1"
+}
 tasks.withType(FindBugs) {
     reports {
         xml.enabled = false
@@ -36,7 +39,7 @@ tasks.withType(FindBugs) {
 
 // PMD Configuration
 pmd {
-    ruleSets = ["java-basic"]
+    toolVersion = '5.5.4'
 }
 tasks.withType(Pmd) {
     reports {
