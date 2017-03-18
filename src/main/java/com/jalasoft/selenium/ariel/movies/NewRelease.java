@@ -5,9 +5,9 @@ package com.jalasoft.selenium.ariel.movies;
  */
 public class NewRelease extends Movie {
 
-    private static final double DAILY_RENTAL_RATE = 3;
-    private static final int RENTAL_PERIOD = 1;
     private static final int FREQUENT_RENTER_BONUS = 1;
+    public static final double BASE_RENTAL_FEE = 3.0;
+    public static final double RENTAL_RATE = 3.0;
 
     /**
      * Creates a NewRelease movie with the given title.
@@ -15,19 +15,10 @@ public class NewRelease extends Movie {
      */
     public NewRelease(final String title) {
         this.title = title;
-    }
+        baseRentalFee = BASE_RENTAL_FEE;
+        rentalPeriod = 1;
+        dailyRentalRate = RENTAL_RATE;
 
-    /**
-     * {@inheritDoc}
-     */
-    public double calculateAmount(final int daysRented) {
-        return daysRented * DAILY_RENTAL_RATE;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public int calculateFrequentRenterPoints(final int daysRented) {
-        return FREQUENT_RENTER_POINTS + ((daysRented > RENTAL_PERIOD) ? FREQUENT_RENTER_BONUS : 0);
+        frequentRenterBonus = 1;
     }
 }

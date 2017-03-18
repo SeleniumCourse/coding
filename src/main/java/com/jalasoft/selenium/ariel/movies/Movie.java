@@ -4,7 +4,15 @@ package com.jalasoft.selenium.ariel.movies;
  * Created by ariel Mattos on 3/6/2017.
  */
 public abstract class Movie {
-    static final int FREQUENT_RENTER_POINTS = 1;
+    public static final double BASE_RENTAL_RATE = 1.5;
+
+    protected double baseRentalFee = 0;
+    protected int rentalPeriod = 0;
+    protected double dailyRentalRate = BASE_RENTAL_RATE;
+
+    protected int frequentRenterPoints = 1;
+    protected int frequentRenterBonus = 0;
+
     protected String title;
 
     /**
@@ -20,7 +28,9 @@ public abstract class Movie {
      * @param daysRented    the days the movie was rented.
      * @return              the charge for the rental of the movie.
      */
-    public abstract double calculateAmount(int daysRented);
+    public double calculateAmount(final int daysRented) {
+        return baseRentalFee + ((daysRented > rentalPeriod) ? (daysRented - rentalPeriod) * dailyRentalRate : 0);
+    }
 
     /**
      * Calculates the frequent renter points earned by renting the movie.
@@ -28,6 +38,6 @@ public abstract class Movie {
      * @return              the frequent renter points earned by renting the movie.
      */
     public int calculateFrequentRenterPoints(final int daysRented) {
-        return FREQUENT_RENTER_POINTS;
+        return frequentRenterPoints + ((daysRented > rentalPeriod) ? frequentRenterBonus : 0);
     }
 }

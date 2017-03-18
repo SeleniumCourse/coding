@@ -3,6 +3,8 @@ package com.jalasoft.selenium.ariel.movies;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.String.format;
+
 /**
  * Created by ariel Mattos on 3/6/2017.
  */
@@ -40,11 +42,12 @@ class Customer {
      * @return               a string containing the movie rentals, total charges and frequent renter points.
      */
     public String statement() {
-        StringBuilder report = new StringBuilder();
-        report.append("Rental Record for ").append(name).append("\n");
-        rentals.forEach(rental -> report.append('\t').append(rental.calculateFigure()));
-        report.append("Amount owed is ").append(calculateTotalAmount()).append('\n');
-        report.append("You earned ").append(calculateFrequentRenterPoints()).append(" frequent renter points");
+        StringBuilder report = new StringBuilder(format("Rental Record for %s %n", name));
+
+        rentals.forEach(rental -> report.append(rental.calculateFigure()));
+
+        report.append(format("Amount owed is %f %n", calculateTotalAmount()));
+        report.append(format("You earned %d frequent renter points.", calculateFrequentRenterPoints()));
 
         return report.toString();
     }

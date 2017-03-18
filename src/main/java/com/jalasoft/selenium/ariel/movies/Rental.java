@@ -1,5 +1,7 @@
 package com.jalasoft.selenium.ariel.movies;
 
+import static java.lang.String.format;
+
 /**
  * Created by ariel Mattos on 3/6/2017.
  */
@@ -38,12 +40,7 @@ class Rental {
      * @return              a string containing the figure of the movie rental.
      */
     public String calculateFigure() {
-        StringBuilder rentalFigure = new StringBuilder(movie.getTitle())
-                .append('\t')
-                .append(movie.calculateAmount(daysRented))
-                .append('\n');
-
-        return rentalFigure.toString();
+        return format("\t %s \t %f %n", movie.getTitle(), movie.calculateAmount(daysRented));
     }
 
     /**
