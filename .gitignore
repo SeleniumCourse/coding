@@ -2,3 +2,5 @@
 /.idea/
 /build/
 /.nb-gradle/
+chromedriver.exe
+nbproject/
