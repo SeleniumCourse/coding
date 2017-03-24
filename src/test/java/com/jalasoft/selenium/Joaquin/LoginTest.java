@@ -1,9 +1,6 @@
 package com.jalasoft.selenium.Joaquin;
 
-        import com.jalasoft.selenium.joaquin.Selenium.SalesForce.CreateOportunityPage;
-        import com.jalasoft.selenium.joaquin.Selenium.SalesForce.HomePage;
-        import com.jalasoft.selenium.joaquin.Selenium.SalesForce.LoginPage;
-        import com.jalasoft.selenium.joaquin.Selenium.SalesForce.OportunityPage;
+        import com.jalasoft.selenium.joaquin.Selenium.SalesForce.*;
         import org.junit.Assert;
         import org.junit.Test;
 
@@ -33,10 +30,19 @@ public class LoginTest {
         login.setPasswordField("P4ssw0rd_1");
         HomePage home= login.clickLoginButton();
         OportunityPage opportunityPage = home.clikOportunitiesTab();
-        CreateOportunityPage createOpportunityPage = opportunityPage.clickNewOpportunity();
+        CreateOportunityPage createOpportunityPage = opportunityPage.clickNew();
         createOpportunityPage.setOpportunityNameTextField("joaquin");
         createOpportunityPage.setOpportunityAccountTextField("Testamerica Inc");
+        createOpportunityPage.selectType("Existing Business");
+        createOpportunityPage.setBudgetConfirm();
+        createOpportunityPage.selectLossReason("Lost to Competitor");
+        createOpportunityPage.setNextStep("Next Step");
+        createOpportunityPage.setDescriptionTextArea("this is a description");
         createOpportunityPage.setCloseDate("10/07/2018");
         createOpportunityPage.selectStage("Qualification");
+        createOpportunityPage.setProbabilityTextField("10");
+        createOpportunityPage.setAmountTextField("1200");
+        createOpportunityPage.saveOpportunity();
+
     }
 }

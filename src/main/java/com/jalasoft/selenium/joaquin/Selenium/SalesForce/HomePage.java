@@ -8,18 +8,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by Joaquin Gonzales on 3/15/2017.
  */
-public class HomePage {
-    public WebDriver driver;
-    public WebDriverWait wait;
+public class HomePage extends BasePage {
+
     private By profileItem = By.cssSelector(".profileTrigger");
     private By profileNameText = By.cssSelector(".profile-card-name .profile-link-label");
-    private By oportunitiesTab = By.cssSelector("a[title='Opportunities']");
-
-    public HomePage(WebDriver driver, WebDriverWait wait)
-    {
-        this.wait = wait;
-        this.driver = driver;
-    }
+    //private By oportunitiesTab = By.cssSelector("a[title='Opportunities']");
 
     public void clickProfileIcon()
     {
@@ -33,8 +26,9 @@ public class HomePage {
     }
     public OportunityPage clikOportunitiesTab()
     {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(oportunitiesTab));
+       return NavigationBar.clickOpportunity();
+       /* wait.until(ExpectedConditions.visibilityOfElementLocated(oportunitiesTab));
         driver.findElement(oportunitiesTab).click();
-        return new OportunityPage(driver,wait);
+        return new OportunityPage();*/
     }
 }

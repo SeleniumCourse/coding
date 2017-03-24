@@ -12,21 +12,12 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Joaquin Gonzales on 3/15/2017.
  */
-public class LoginPage {
-    public WebDriver driver;
-    public WebDriverWait wait;
+public class LoginPage extends BasePage {
+
     private By username = By.id("username");
     private By password = By.id("password");
     private By login = By.id("Login");
 
-    public LoginPage()
-    {
-        System.setProperty("webdriver.chore.driver","chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.get("https://login.salesforce.com/");
-        wait = new WebDriverWait(driver,30);
-    }
     public void setUserNameTextField(String userName)
     {
         wait.until(ExpectedConditions.visibilityOfElementLocated(username));
@@ -41,7 +32,7 @@ public class LoginPage {
     {
         wait.until(ExpectedConditions.elementToBeClickable(login));
         driver.findElement(login).click();
-        return new HomePage(driver,wait);
+        return new HomePage();
     }
 
 }

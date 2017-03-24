@@ -8,20 +8,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Created by Joaquin Gonzales on 3/15/2017.
  */
-public class OportunityPage {
-    private WebDriver driver;
-    private WebDriverWait wait;
-    private By newButton = By.cssSelector("div[title='New']");
+public class OportunityPage extends BaseHome{
 
-    public OportunityPage(WebDriver driver,WebDriverWait wait)
-    {
-        this.driver = driver;
-        this.wait = wait;
-    }
-    public CreateOportunityPage clickNewOpportunity()
-    {
+    @Override
+    public CreateOportunityPage clickNew() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(newButton));
         driver.findElement(newButton).click();
-        return new CreateOportunityPage(driver,wait);
+        return new CreateOportunityPage();
     }
 }
