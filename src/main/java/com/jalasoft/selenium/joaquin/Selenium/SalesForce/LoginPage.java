@@ -1,9 +1,11 @@
 package com.jalasoft.selenium.joaquin.Selenium.SalesForce;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,24 +16,55 @@ import java.util.concurrent.TimeUnit;
  */
 public class LoginPage extends BasePage {
 
-    private By username = By.id("username");
-    private By password = By.id("password");
-    private By login = By.id("Login");
+    @FindBy(id="username")
+    private WebElement usernameTextField;
+
+    @FindBy(id="password")
+    private WebElement password;
+
+    @FindBy(id="Login")
+    private WebElement login;
 
     public void setUserNameTextField(String userName)
     {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(username));
-        driver.findElement(username).sendKeys(userName);
+       ActionUtil.sendText(usernameTextField,userName);
     }
     public void setPasswordField(String passwordByClient)
     {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(password));
-        driver.findElement(password).sendKeys(passwordByClient);
+        ActionUtil.sendText(password,passwordByClient);
     }
     public HomePage clickLoginButton()
     {
-        wait.until(ExpectedConditions.elementToBeClickable(login));
-        driver.findElement(login).click();
+        ActionUtil.clickButton(login);
+        return new HomePage();
+    }
+    public static HomePage loginAs(String user, String pass)
+    {
+        WebDriver driver = DriverManager.getInstance().getDriver();
+        String title = "Login | Salesforce";
+        String title2 = driver.getCurrentUrl();
+        if (title.equals(title2))
+        {
+            LoginPage login = new LoginPage();
+            login.setUserNameTextField(user);
+            login.setPasswordField(pass);
+            login.clickLoginButton();
+        }
+        else{
+        return new HomePage();
+        }
+        /*
+        boolean present;
+        try {
+            driver.findElement(By.cssSelector(".profileTrigger"));
+            present = true;
+        } catch (NoSuchElementException e) {
+            present = false;
+        }
+        if (present)
+        {
+
+        }*/
         return new HomePage();
     }
 

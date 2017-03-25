@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  */
 public class AccountPage extends BaseHome {
     @Override
-    protected CreateAccountPage clickNew() {
+    public CreateAccountPage clickNew() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(newButton));
         driver.findElement(newButton);
         return new CreateAccountPage();

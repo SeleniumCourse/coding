@@ -15,7 +15,7 @@ public class DriverManager {
     private WebDriverWait wait;
     private DriverManager()
     {
-        System.setProperty("webdriver.chore.driver","chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.get("https://login.salesforce.com/");

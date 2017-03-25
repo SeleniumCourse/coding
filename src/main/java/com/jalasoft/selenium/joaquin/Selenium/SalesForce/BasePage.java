@@ -2,6 +2,7 @@ package com.jalasoft.selenium.joaquin.Selenium.SalesForce;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -16,5 +17,6 @@ public abstract class BasePage {
     {
         driver = DriverManager.getInstance().getDriver();
         wait = DriverManager.getInstance().getWait();
+        PageFactory.initElements(driver,this);
     }
 }
