@@ -9,8 +9,6 @@ import java.util.Iterator;
 class Customer {
     private final String name;
     private final ArrayList<Rental> rentals = new ArrayList<Rental>();
-    private double totalAmount;
-    private int frequentRenterPoints;
     private String statement;
 
     /**
@@ -19,8 +17,6 @@ class Customer {
      */
     Customer(final String name) {
         this.name = name;
-        this.totalAmount = 0;
-        this.frequentRenterPoints = 0;
         this.statement = "";
     }
 
@@ -52,12 +48,8 @@ class Customer {
      * Generate the Statement Rentals of Customer.
      */
     public void statement() {
-        Iterator<Rental> rentalsLocal = this.rentals.iterator();
-        while (rentalsLocal.hasNext()) {
-            Rental each = (Rental) rentalsLocal.next();
-            sumAmount(calculateAmount(each));
-            calculateFrequentRenterPoints(each);
-            appedStatement(each);
+        for (Rental rental : this.rentals) {
+            appedStatement(rental);
         }
     }
 
@@ -70,23 +62,6 @@ class Customer {
                 .append("\t").append(each.getMovie().getTitle())
                 .append("\t").append(String.valueOf(calculateAmount(each)))
                 .append("\n").toString();
-    }
-
-    /**
-     * calculateFrequentRenterPoints.
-     * @param each movie of customer.
-     */
-    public void calculateFrequentRenterPoints(final Rental each) {
-        this.frequentRenterPoints += each.getMovie()
-                .calculateBonus(each.getDaysRented());
-    }
-
-    /**
-     * sumAmount.
-     * @param thisAmount movie rented.
-     */
-    public void sumAmount(final double thisAmount) {
-        this.totalAmount += thisAmount;
     }
 
     /**
@@ -107,10 +82,34 @@ class Customer {
                 .append(getName()).append("\n")
                 .append(this.statement)
                 .append("Amount owed is ")
-                .append(String.valueOf(this.totalAmount))
+                .append(String.valueOf(calculateTotalAmount()))
                 .append("\n")
                 .append("You earned ")
-                .append(String.valueOf(this.frequentRenterPoints))
+                .append(String.valueOf(calculateTotalFrequentRenterPoints()))
                 .append(" frequent renter points").toString();
+    }
+
+    /**
+     * calculateTotalAmount.
+     * @return double number
+     */
+    public double calculateTotalAmount() {
+        double sumAmount = 0;
+        for (Rental rental : this.rentals) {
+            sumAmount += calculateAmount(rental);
+        }
+        return sumAmount;
+    }
+
+    /**
+     * calculateTotalFrequentRenterPoints.
+     * @return int number
+     */
+    public int calculateTotalFrequentRenterPoints() {
+        int frequentRenterPoints = 0;
+        for (Rental rental : this.rentals) {
+            frequentRenterPoints += rental.getMovie().calculateBonus(rental.getDaysRented());
+        }
+        return frequentRenterPoints;
     }
 }
