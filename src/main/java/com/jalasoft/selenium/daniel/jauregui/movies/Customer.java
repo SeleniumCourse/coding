@@ -1,7 +1,7 @@
 package com.jalasoft.selenium.daniel.jauregui.movies;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+
 /**
  * Customer class.
  * @author Daniel Jauregui
