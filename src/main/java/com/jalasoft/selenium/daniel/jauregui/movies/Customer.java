@@ -8,8 +8,7 @@ import java.util.ArrayList;
  */
 class Customer {
     private final String name;
-    private final ArrayList<Rental> rentals = new ArrayList<Rental>();
-    private String statement;
+    private final ArrayList<Rental> rentals;
 
     /**
      * Constructor of Customer class.
@@ -17,8 +16,9 @@ class Customer {
      */
     Customer(final String name) {
         this.name = name;
-        this.statement = "";
+        rentals = new ArrayList<Rental>();
     }
+
 
     /**
      * addRental will add the movies that customer is renting.
@@ -45,23 +45,14 @@ class Customer {
     }
 
     /**
-     * Generate the Statement Rentals of Customer.
-     */
-    public void statement() {
-        for (Rental rental : this.rentals) {
-            appedStatement(rental);
-        }
-    }
-
-    /**
      * appedStatement.
      * @param each movie of customer.
      */
-    public void appedStatement(final Rental each) {
-        this.statement =  new StringBuilder().append(this.statement)
+    public StringBuilder appedStatement(final Rental each, final String detail) {
+        return new StringBuilder().append(detail)
                 .append("\t").append(each.getMovie().getTitle())
                 .append("\t").append(String.valueOf(calculateAmount(each)))
-                .append("\n").toString();
+                .append("\n");
     }
 
     /**
@@ -78,14 +69,18 @@ class Customer {
      * @return the text of Statement
      */
     public String printStatement() {
+        StringBuilder detail = new StringBuilder();
+        for (Rental rental : this.rentals) {
+            detail = appedStatement(rental,detail.toString());
+        }
         return new StringBuilder().append("Rental Record for ")
                 .append(getName()).append("\n")
-                .append(this.statement)
+                .append(detail)
                 .append("Amount owed is ")
-                .append(String.valueOf(calculateTotalAmount()))
+                .append(calculateTotalAmount())
                 .append("\n")
                 .append("You earned ")
-                .append(String.valueOf(calculateTotalFrequentRenterPoints()))
+                .append(calculateTotalFrequentRenterPoints())
                 .append(" frequent renter points").toString();
     }
 
