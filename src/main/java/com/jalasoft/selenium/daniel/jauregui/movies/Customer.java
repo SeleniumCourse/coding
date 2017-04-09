@@ -46,7 +46,9 @@ class Customer {
 
     /**
      * appedStatement.
-     * @param each movie of customer.
+     * @param each Rental movie
+     * @param detail of movies rented
+     * @return an StringBuilder with new detail.
      */
     public StringBuilder appedStatement(final Rental each, final String detail) {
         return new StringBuilder().append(detail)
@@ -71,7 +73,7 @@ class Customer {
     public String printStatement() {
         StringBuilder detail = new StringBuilder();
         for (Rental rental : this.rentals) {
-            detail = appedStatement(rental,detail.toString());
+            detail = appedStatement(rental, detail.toString());
         }
         return new StringBuilder().append("Rental Record for ")
                 .append(getName()).append("\n")
