@@ -28,7 +28,7 @@ public class ChildrenMovie extends Movie {
      * @param daysRented days movie rented.
      * @return amount value.
      */
-    double calculateAmount(final int daysRented) {
+    public double calculateAmount(final int daysRented) {
         double thisAmount = AMOUNT_VALUE;
         if (daysRented > DAYS_RENTED_AT_LEAST) {
             thisAmount += (daysRented - DAYS_RENTED_AT_LEAST) * BONUS;

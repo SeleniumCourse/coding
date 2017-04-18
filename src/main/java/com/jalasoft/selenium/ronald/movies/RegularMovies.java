@@ -16,7 +16,7 @@ public class RegularMovies extends Movie {
      * @param title movie title.
      * @param priceCode movie price.
      */
-    RegularMovies(final String title, final int priceCode) {
+    public RegularMovies(final String title, final int priceCode) {
         this.title = title;
         this.priceCode = priceCode;
     }
@@ -27,7 +27,7 @@ public class RegularMovies extends Movie {
      * @param daysRented number of days rented.
      * @return calculated amount
      */
-    double calculateAmount(final int daysRented) {
+    public double calculateAmount(final int daysRented) {
         double thisAmount = 2;
         if (daysRented > DAYS_RENTED_AT_LEAST) {
             thisAmount += (daysRented - DAYS_RENTED_AT_LEAST) * BONUS;

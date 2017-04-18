@@ -13,7 +13,7 @@ public class NewReleaseMovie extends Movie {
      * @param title movie's name.
      * @param priceCode price.
      */
-    NewReleaseMovie(final String title, final int priceCode) {
+    public NewReleaseMovie(final String title, final int priceCode) {
         this.title = title;
         this.priceCode = priceCode;
     }
@@ -24,7 +24,7 @@ public class NewReleaseMovie extends Movie {
      * @param daysRented number of days rented.
      * @return amount value.
      */
-    double calculateAmount(final int daysRented) {
+    public double calculateAmount(final int daysRented) {
 
         return daysRented * AMOUNT;
     }

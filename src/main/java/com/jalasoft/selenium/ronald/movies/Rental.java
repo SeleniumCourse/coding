@@ -4,7 +4,7 @@ package com.jalasoft.selenium.ronald.movies;
  * Rental class.
  * @author ronald_butron
  */
-class Rental {
+public class Rental {
 
     private Movie movie;
     private int daysRented;
@@ -15,7 +15,7 @@ class Rental {
      * @param movie an object.
      * @param daysRented number days rented.
      */
-    Rental(final Movie movie, final int daysRented) {
+    public Rental(final Movie movie, final int daysRented) {
         this.movie = movie;
         this.daysRented = daysRented;
     }

@@ -8,6 +8,10 @@ public abstract class Movie {
 
     protected String title;
     protected int priceCode;
+    protected int regularBonus = 1;
+    protected int frequentBonus = 2;
+    private static final String NEW_REALEASE  = "NewReleaseMovie";
+
 
     /**
      * This method get movie price.
@@ -41,5 +45,19 @@ public abstract class Movie {
      *
      * @return amount value
      */
-    abstract double calculateAmount(int daysRented);
+    public abstract double calculateAmount(int daysRented);
+
+    /**
+     * return bonus value
+     *
+     * @param daysRented number of Days Rented
+     * @return bonus
+     */
+    public int getFrequentRenterPoint(int daysRented, String classType) {
+        if (classType.contains(NEW_REALEASE)  && daysRented > 1) {
+            return frequentBonus;
+        }
+
+        return regularBonus;
+    }
 }
