@@ -35,7 +35,7 @@ public class RegularTest {
         final double amount = terminator.calculateAmount(daysRented);
 
         // then
-        Assert.assertEquals(amount, expected,"The values are not equals: " );
+        Assert.assertEquals(amount, expected, "The values are not equals: ");
     }
 
     /**

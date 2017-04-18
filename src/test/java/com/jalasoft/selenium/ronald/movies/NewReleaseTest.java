@@ -34,8 +34,8 @@ public class NewReleaseTest {
         // When
         final double amount = batmanVsSuperman.calculateAmount(daysRented);
 
-        // then
-        Assert.assertEquals(amount, expected,"The values are not equals: " );
+        // Then
+        Assert.assertEquals(amount, expected, "The values are not equals: ");
     }
 
     /**
@@ -43,10 +43,11 @@ public class NewReleaseTest {
      */
     @Test
     public void testCalculateBonus() {
-        final double expectedBonus = 2;
 
         // When
-        final double actualBonus = batmanVsSuperman.getFrequentRenterPoint(daysRented, batmanVsSuperman.getClass().toString());
+        final double expectedBonus = 2;
+        final double actualBonus = batmanVsSuperman.getFrequentRenterPoint(daysRented,
+                batmanVsSuperman.getClass().toString());
 
         // Then
         Assert.assertEquals(actualBonus, expectedBonus, "The bonus are not equals: ");

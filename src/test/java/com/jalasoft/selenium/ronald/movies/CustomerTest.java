@@ -40,15 +40,16 @@ public class CustomerTest {
      */
     @Test
     public void testStatement() {
-        String expectedStatement = "Rental Record for " + customer.getName() + "\n" +
-                ("\tDragon Ball Z\t1.5\n") +
-                ("\tTerminator\t2.0\n") +
-                ("\tBatman vs Superman\t6.0\n") +
-                ("Amount owed is 9.5\n") +
-                ("You earned 4 frequent renter points");
+
+        String expectedStatement = "Rental Record for " + customer.getName() + "\n";
+        expectedStatement += ("\tDragon Ball Z\t1.5\n");
+        expectedStatement += ("\tTerminator\t2.0\n");
+        expectedStatement += ("\tBatman vs Superman\t6.0\n");
+        expectedStatement += ("Amount owed is 9.5\n");
+        expectedStatement += ("You earned 4 frequent renter points");
 
         // Then
-        Assert.assertEquals(customer.statement(), expectedStatement.toString(), "Statement are not equals");
+        Assert.assertEquals(customer.statement(), expectedStatement, "Statement are not equals");
     }
 
     /**

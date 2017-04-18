@@ -30,12 +30,11 @@ public class ChildrenTest {
     public void testCalculateAmount() {
 
         final double expected = 1.5;
-
         // When
         final double amount = dragonBallZ.calculateAmount(daysRented);
 
-        // then
-        Assert.assertEquals(amount, expected,"The values are not equals: " );
+        // Then
+        Assert.assertEquals(amount, expected, "The values are not equals: ");
     }
 
     /**
@@ -43,9 +42,9 @@ public class ChildrenTest {
      */
     @Test
     public void testCalculateBonus() {
-        final double expectedBonus = 1;
 
         // When
+        final double expectedBonus = 1;
         final double actualBonus = dragonBallZ.getFrequentRenterPoint(daysRented, dragonBallZ.getClass().toString());
 
         // Then
