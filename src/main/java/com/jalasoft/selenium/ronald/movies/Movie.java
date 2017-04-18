@@ -48,12 +48,13 @@ public abstract class Movie {
     public abstract double calculateAmount(int daysRented);
 
     /**
-     * return bonus value
+     * return bonus value.
      *
      * @param daysRented number of Days Rented
+     * @param classType class type for instance "NewRelease"
      * @return bonus
      */
-    public int getFrequentRenterPoint(int daysRented, String classType) {
+    public int getFrequentRenterPoint(final int daysRented, final String classType) {
         if (classType.contains(NEW_REALEASE)  && daysRented > 1) {
             return frequentBonus;
         }

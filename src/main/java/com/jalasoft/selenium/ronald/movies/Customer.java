@@ -1,6 +1,8 @@
 package com.jalasoft.selenium.ronald.movies;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Customer class.
@@ -11,7 +13,7 @@ public class Customer {
     private List<Rental> rentals = new ArrayList<>();
 
     /**
-     * Get rental list
+     * Get rental list.
      *
      * @return rental list
      */
