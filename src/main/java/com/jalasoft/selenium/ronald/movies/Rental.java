@@ -32,7 +32,7 @@ public class Rental {
     /**
      * This method get Movie object.
      *
-     * @return movie object.
+     * @return movies object.
      */
     public Movie getMovie() {
         return movie;

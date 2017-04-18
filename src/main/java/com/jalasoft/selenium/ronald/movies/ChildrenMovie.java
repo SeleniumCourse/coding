@@ -14,7 +14,7 @@ public class ChildrenMovie extends Movie {
     /**
      * Constructor.
      *
-     * @param title movie name.
+     * @param title movies name.
      * @param priceCode price code value.
      */
     public ChildrenMovie(final String title, final int priceCode) {
@@ -25,7 +25,7 @@ public class ChildrenMovie extends Movie {
     /**
      * This method calculate amount value.
      *
-     * @param daysRented days movie rented.
+     * @param daysRented days movies rented.
      * @return amount value.
      */
     public double calculateAmount(final int daysRented) {

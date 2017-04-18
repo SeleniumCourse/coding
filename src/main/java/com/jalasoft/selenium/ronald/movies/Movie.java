@@ -14,26 +14,26 @@ public abstract class Movie {
 
 
     /**
-     * This method get movie price.
+     * This method get movies price.
      *
-     * @return movie price
+     * @return movies price
      */
     public int getPriceCode() {
         return priceCode;
     }
 
     /**
-     * This method set movie price.
+     * This method set movies price.
      *
-     * @param priceCode movie price to set.
+     * @param priceCode movies price to set.
      */
     public void setPriceCode(final int priceCode) {
         this.priceCode = priceCode;
     }
 
     /**
-     * This method get movie title.
-     * @return movie title.
+     * This method get movies title.
+     * @return movies title.
      */
     public String getTitle() {
         return title;

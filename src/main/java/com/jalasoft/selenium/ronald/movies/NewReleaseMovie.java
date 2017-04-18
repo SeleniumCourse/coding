@@ -10,7 +10,7 @@ public class NewReleaseMovie extends Movie {
     /**
      * Constructor class.
      *
-     * @param title movie's name.
+     * @param title movies's name.
      * @param priceCode price.
      */
     public NewReleaseMovie(final String title, final int priceCode) {
