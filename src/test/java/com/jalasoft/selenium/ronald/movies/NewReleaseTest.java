@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 /**
+ * RNew Release movie.
  * @author bsronald on 4/18/17.
  */
 public class NewReleaseTest {
@@ -12,6 +13,9 @@ public class NewReleaseTest {
     private final int daysRented = 2;
     private Movie batmanVsSuperman;
 
+    /**
+     * * Set up environment.
+     */
     @BeforeTest
     public void setup() {
         final String newRelease = "Batman vs Superman";
@@ -19,7 +23,9 @@ public class NewReleaseTest {
         batmanVsSuperman = new NewReleaseMovie(newRelease, price);
     }
 
-
+    /**
+     * Calculate amount.
+     */
     @Test
     public void testCalculateAmount() {
 
@@ -32,6 +38,9 @@ public class NewReleaseTest {
         Assert.assertEquals(amount, expected,"The values are not equals: " );
     }
 
+    /**
+     * Calculate Bonus.
+     */
     @Test
     public void testCalculateBonus() {
         final double expectedBonus = 2;

@@ -5,11 +5,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
+ * Customer.
  * @author bsronald on 4/18/17.
  */
 public class CustomerTest {
 
-    Customer customer;
+    private Customer customer;
+
+    /**
+     * Set up environment.
+     */
     @BeforeMethod
     public void setUp() {
 
@@ -30,6 +35,9 @@ public class CustomerTest {
         customer.addRental(new Rental(batmanVsSuperman, 2));
     }
 
+    /**
+     * Statement test.
+     */
     @Test
     public void testStatement() {
         String expectedStatement = "Rental Record for " + customer.getName() + "\n" +
@@ -43,6 +51,9 @@ public class CustomerTest {
         Assert.assertEquals(customer.statement(), expectedStatement.toString(), "Statement are not equals");
     }
 
+    /**
+     * Add new movie test.
+     */
     @Test
     public void testAddMovie() {
 
@@ -59,6 +70,4 @@ public class CustomerTest {
         // Then
         Assert.assertEquals(customer.getRentals().size(), expectedSize);
     }
-
-
 }
