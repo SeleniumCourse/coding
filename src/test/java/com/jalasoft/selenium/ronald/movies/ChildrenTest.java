@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
  */
 public class ChildrenTest {
 
-    private final int daysRented = 2;
+    private static final int DAYS_RENTED = 2;
     private Movie dragonBallZ;
 
     /**
@@ -31,7 +31,7 @@ public class ChildrenTest {
 
         final double expected = 1.5;
         // When
-        final double amount = dragonBallZ.calculateAmount(daysRented);
+        final double amount = dragonBallZ.calculateAmount(DAYS_RENTED);
 
         // Then
         Assert.assertEquals(amount, expected, "The values are not equals: ");
@@ -45,7 +45,7 @@ public class ChildrenTest {
 
         // When
         final double expectedBonus = 1;
-        final double actualBonus = dragonBallZ.getFrequentRenterPoint(daysRented, dragonBallZ.getClass().toString());
+        final double actualBonus = dragonBallZ.getFrequentRenterPoint(DAYS_RENTED, dragonBallZ.getClass().toString());
 
         // Then
         Assert.assertEquals(actualBonus, expectedBonus, "The bonus are not equals: ");

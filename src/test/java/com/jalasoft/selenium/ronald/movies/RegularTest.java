@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
  */
 public class RegularTest {
 
-    private final int daysRented = 2;
+    private static final int DAYS_RENTED = 2;
     private Movie terminator;
 
     /**
@@ -32,7 +32,7 @@ public class RegularTest {
         final double expected = 2;
 
         // When
-        final double amount = terminator.calculateAmount(daysRented);
+        final double amount = terminator.calculateAmount(DAYS_RENTED);
 
         // then
         Assert.assertEquals(amount, expected, "The values are not equals: ");
@@ -46,7 +46,7 @@ public class RegularTest {
         final double expectedBonus = 1;
 
         // When
-        final double actualBonus = terminator.getFrequentRenterPoint(daysRented, terminator.getClass().toString());
+        final double actualBonus = terminator.getFrequentRenterPoint(DAYS_RENTED, terminator.getClass().toString());
 
         // Then
         Assert.assertEquals(actualBonus, expectedBonus, "The bonus are not equals: ");

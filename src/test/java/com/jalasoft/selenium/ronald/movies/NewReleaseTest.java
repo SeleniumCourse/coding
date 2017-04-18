@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
  */
 public class NewReleaseTest {
 
-    private final int daysRented = 2;
+    private static final int DAYS_RENTED = 2;
     private Movie batmanVsSuperman;
 
     /**
@@ -32,7 +32,7 @@ public class NewReleaseTest {
         final double expected = 6;
 
         // When
-        final double amount = batmanVsSuperman.calculateAmount(daysRented);
+        final double amount = batmanVsSuperman.calculateAmount(DAYS_RENTED);
 
         // Then
         Assert.assertEquals(amount, expected, "The values are not equals: ");
@@ -46,7 +46,7 @@ public class NewReleaseTest {
 
         // When
         final double expectedBonus = 2;
-        final double actualBonus = batmanVsSuperman.getFrequentRenterPoint(daysRented,
+        final double actualBonus = batmanVsSuperman.getFrequentRenterPoint(DAYS_RENTED,
                 batmanVsSuperman.getClass().toString());
 
         // Then
