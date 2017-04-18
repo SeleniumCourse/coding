@@ -1,9 +1,7 @@
 package com.jalasoft.selenium.ronald.movies;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 /**
@@ -34,13 +32,12 @@ public class CustomerTest {
 
     @Test
     public void testStatement() {
-        StringBuilder expectedStatement = new StringBuilder("Rental Record for " + customer.getName() + "\n");
-        expectedStatement
-                .append("\tDragon Ball Z\t1.5\n")
-                .append("\tTerminator\t2.0\n")
-                .append("\tBatman vs Superman\t6.0\n")
-                .append("Amount owed is 9.5\n")
-                .append("You earned 4 frequent renter points");
+        String expectedStatement = "Rental Record for " + customer.getName() + "\n" +
+                ("\tDragon Ball Z\t1.5\n") +
+                ("\tTerminator\t2.0\n") +
+                ("\tBatman vs Superman\t6.0\n") +
+                ("Amount owed is 9.5\n") +
+                ("You earned 4 frequent renter points");
 
         // Then
         Assert.assertEquals(customer.statement(), expectedStatement.toString(), "Statement are not equals");
