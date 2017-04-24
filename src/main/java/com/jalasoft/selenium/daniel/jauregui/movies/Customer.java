@@ -1,6 +1,8 @@
 package com.jalasoft.selenium.daniel.jauregui.movies;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Customer class.
@@ -8,7 +10,7 @@ import java.util.ArrayList;
  */
 class Customer {
     private final String name;
-    private final ArrayList<Rental> rentals;
+    private final List<Rental> rentals;
 
     /**
      * Constructor of Customer class.
@@ -32,7 +34,7 @@ class Customer {
      * getRentals.
      * @return : Get Object with all rentals of customer.
      */
-    public ArrayList<Rental> getRentals() {
+    public List<Rental> getRentals() {
         return this.rentals;
     }
 
@@ -71,13 +73,12 @@ class Customer {
      * @return the text of Statement
      */
     public String printStatement() {
-        StringBuilder detail = new StringBuilder();
-        for (Rental rental : this.rentals) {
-            detail = appedStatement(rental, detail.toString());
-        }
         return new StringBuilder().append("Rental Record for ")
                 .append(getName()).append("\n")
-                .append(detail)
+                .append(this.rentals.stream().map(rental->(new StringBuilder()
+                        .append("\t").append(rental.getMovie().getTitle())
+                        .append("\t").append(String.valueOf(calculateAmount(rental)))
+                        .append("\n"))).collect(Collectors.joining("")))
                 .append("Amount owed is ")
                 .append(calculateTotalAmount())
                 .append("\n")
@@ -91,22 +92,14 @@ class Customer {
      * @return double number
      */
     public double calculateTotalAmount() {
-        double sumAmount = 0;
-        for (Rental rental : this.rentals) {
-            sumAmount += calculateAmount(rental);
-        }
-        return sumAmount;
-    }
+          return this.rentals.stream().mapToDouble(rental->calculateAmount(rental)).sum();
+      }
 
     /**
      * calculateTotalFrequentRenterPoints.
      * @return int number
      */
     public int calculateTotalFrequentRenterPoints() {
-        int frequentRenterPoints = 0;
-        for (Rental rental : this.rentals) {
-            frequentRenterPoints += rental.getMovie().calculateBonus(rental.getDaysRented());
-        }
-        return frequentRenterPoints;
+        return this.rentals.stream().mapToInt(rental->rental.getMovie().calculateBonus(rental.getDaysRented())).sum();
     }
 }
