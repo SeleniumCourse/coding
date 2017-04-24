@@ -47,19 +47,6 @@ class Customer {
     }
 
     /**
-     * appedStatement.
-     * @param each Rental movie
-     * @param detail of movies rented
-     * @return an StringBuilder with new detail.
-     */
-    public StringBuilder appedStatement(final Rental each, final String detail) {
-        return new StringBuilder().append(detail)
-                .append("\t").append(each.getMovie().getTitle())
-                .append("\t").append(String.valueOf(calculateAmount(each)))
-                .append("\n");
-    }
-
-    /**
      * calculateAmount.
      * @param each movie of customer.
      * @return calculate amount for current movie.
@@ -75,7 +62,7 @@ class Customer {
     public String printStatement() {
         return new StringBuilder().append("Rental Record for ")
                 .append(getName()).append("\n")
-                .append(this.rentals.stream().map(rental->(new StringBuilder()
+                .append(this.rentals.stream().map(rental -> (new StringBuilder()
                         .append("\t").append(rental.getMovie().getTitle())
                         .append("\t").append(String.valueOf(calculateAmount(rental)))
                         .append("\n"))).collect(Collectors.joining("")))
@@ -92,7 +79,7 @@ class Customer {
      * @return double number
      */
     public double calculateTotalAmount() {
-          return this.rentals.stream().mapToDouble(rental->calculateAmount(rental)).sum();
+          return this.rentals.stream().mapToDouble(rental -> calculateAmount(rental)).sum();
       }
 
     /**
@@ -100,6 +87,6 @@ class Customer {
      * @return int number
      */
     public int calculateTotalFrequentRenterPoints() {
-        return this.rentals.stream().mapToInt(rental->rental.getMovie().calculateBonus(rental.getDaysRented())).sum();
+        return this.rentals.stream().mapToInt(rental -> rental.getMovie().calculateBonus(rental.getDaysRented())).sum();
     }
 }
