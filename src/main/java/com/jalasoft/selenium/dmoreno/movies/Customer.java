@@ -1,14 +1,15 @@
 package com.jalasoft.selenium.dmoreno.movies;
 
-import java.util.Enumeration;
-import java.util.Vector;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  */
 public class Customer {
-    private String name;
-    private Vector rentals = new Vector();
+    private final String name;
+    private final List<Rental> rentals = new ArrayList<Rental>();
 
     /**
      * @param name name
@@ -21,7 +22,7 @@ public class Customer {
      * @param rental rental
      */
     public void addRental(final Rental rental) {
-        rentals.addElement(rental);
+        rentals.add(rental);
     }
 
     /**
@@ -35,27 +36,45 @@ public class Customer {
      * @return statement
      */
     public String statement() {
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
-        Enumeration rentals = this.rentals.elements();
         StringBuilder resultBuilder = new StringBuilder("Rental Record for " + getName() + "\n");
-        while (rentals.hasMoreElements()) {
-            Rental each = (Rental) rentals.nextElement();
-            double thisAmount = each.calculateRentalAmount();
 
+        for (Rental each : this.rentals) {
+            //show figures for this rental
+            resultBuilder.append("\t" + each.getMovie().getTitle() + "\t"
+                    + String.valueOf(each.calculateRentalAmount()) + "\n");
+        }
+        //add footer lines
+        resultBuilder.append("Amount owed is " + this.calculateTotalAmount() + "\n");
+        resultBuilder.append("You earned " + this.calculateFrequentRenterPoints() + " frequent renter points");
+
+        return resultBuilder.toString();
+    }
+
+    /**
+     * @return The total amount.
+     */
+    public double calculateTotalAmount() {
+        double totalAmount = 0;
+
+        for (Rental each : this.rentals) {
+            totalAmount += each.calculateRentalAmount();
+        }
+
+        return totalAmount;
+    }
+
+    /**
+     * @return The renter points.
+     */
+    public int calculateFrequentRenterPoints() {
+        int frequentRenterPoints = 0;
+
+        for (Rental each : this.rentals) {
             // add frequent renter points
             // add bonus for a two day new release rental
             frequentRenterPoints += (1 + each.getFrequentRenterPoints());
-
-            //show figures for this rental
-            resultBuilder.append("\t" + each.getMovie().getTitle() + "\t"
-                    + String.valueOf(thisAmount) + "\n");
-            totalAmount += thisAmount;
         }
-        //add footer lines
-        resultBuilder.append("Amount owed is " + totalAmount + "\n");
-        resultBuilder.append("You earned " + frequentRenterPoints + " frequent renter points");
 
-        return resultBuilder.toString();
+        return frequentRenterPoints;
     }
 }
