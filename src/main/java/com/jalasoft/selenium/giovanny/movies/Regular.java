@@ -1,21 +1,20 @@
 package com.jalasoft.selenium.giovanny.movies;
 
 /**
- * Subclass that represents the children type
+ * Subclass that represents the regular type
  * of movie.
  *
- * Created by xianqe on 3/6/2017.
+ * Created by xianqe on 4/24/2017.
  */
-public class Childrens extends Movie {
+public class Regular extends Movie {
 
     /**
      * Class constructor.
      *
-     * @param title the children movie title
+     * @param title the movie title
      */
-    public Childrens(final String title) {
+    public Regular(final String title) {
         super(title);
-
     }
 
     /**
@@ -28,10 +27,10 @@ public class Childrens extends Movie {
      */
     @Override
     public double determineAmount(final int daysRented) {
-        int thisAmount = 0;
-        thisAmount += DISSCOUNT;
-        if (daysRented > ADDED_CONSTANT) {
-            thisAmount += (daysRented - ADDED_CONSTANT) * DISSCOUNT;
+        double thisAmount = 0;
+        thisAmount += POSITIVE;
+        if (daysRented > 2) {
+            thisAmount += (daysRented - POSITIVE) * DISSCOUNT;
         }
 
         return thisAmount;

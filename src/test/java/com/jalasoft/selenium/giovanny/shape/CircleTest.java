@@ -4,46 +4,62 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import static java.lang.Math.PI;
+
 /**
- * Created by xianqe on 3/6/2017.
+ * Test class for Circle Test.
+ *
+ * @author      Giovanny Uscamaita
+ * @version     2.0, 4/24/2017
  */
 public class CircleTest {
 
-    private static final int DELTA = 10;
+    private static final double DELTA = PI * 25;
 
-    private Shape circle;
+    private static final double GAMMA = 2 * PI * 5;
 
+    private IShape circle;
+
+    /**
+     * Method that sets the prerequisites for the test.
+     */
     @Before
-    public void setUp(){
-        //Given
+    public void setUp() {
+
+        //Given a Circle radio of 5
         final int radio = 5;
         circle = new Circle(radio);
     }
 
+    /**
+     * Method that tests the calculateArea method.
+     */
     @Test
-    public void testCalculateAreaWhen(){
+    public void testCalculateCircleAreaWhen() {
 
         //When
         final double actualArea = circle.calculateArea();
 
 
         //Then
-        final double expectedArea = 10;
+        final double expectedArea = 25 * PI;
         Assert.assertEquals(expectedArea, actualArea, DELTA);
 
     }
 
+    /**
+     * Method that tests the calculatedPerimeter method.
+     */
     @Test
-    public void test_calculatePerimeter_when(){
+    public void testCalculateCirclePerimeterWhen() {
 
         //When
         final double actualPerimeter = circle.calculatePerimeter();
 
 
         //Then
-        final double expectedPerimeter = 10;
-        Assert.assertEquals(expectedPerimeter, actualPerimeter, DELTA);
-        Assert.assertEquals();
+        final double expectedPerimeter = 2 * PI * 5;
+        Assert.assertEquals(expectedPerimeter, actualPerimeter, GAMMA);
 
     }
 }

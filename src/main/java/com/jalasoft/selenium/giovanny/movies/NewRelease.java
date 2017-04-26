@@ -1,21 +1,20 @@
 package com.jalasoft.selenium.giovanny.movies;
 
 /**
- * Subclass that represents the children type
+ * Subclass that represents the new release type
  * of movie.
  *
- * Created by xianqe on 3/6/2017.
+ * Created by xianqe on 4/24/2017.
  */
-public class Childrens extends Movie {
+public class NewRelease extends Movie {
 
     /**
      * Class constructor.
      *
-     * @param title the children movie title
+     * @param title the movie name
      */
-    public Childrens(final String title) {
+    public NewRelease(final String title) {
         super(title);
-
     }
 
     /**
@@ -28,13 +27,7 @@ public class Childrens extends Movie {
      */
     @Override
     public double determineAmount(final int daysRented) {
-        int thisAmount = 0;
-        thisAmount += DISSCOUNT;
-        if (daysRented > ADDED_CONSTANT) {
-            thisAmount += (daysRented - ADDED_CONSTANT) * DISSCOUNT;
-        }
-
-        return thisAmount;
+        return daysRented * ADDED_CONSTANT;
     }
 
     /**
@@ -47,6 +40,10 @@ public class Childrens extends Movie {
      */
     @Override
     public int frequentRentPoints(final int daysRented) {
-        return 1;
+        if (daysRented > 1) {
+            return POSITIVE;
+        } else {
+            return NEGATIVE;
+        }
     }
 }

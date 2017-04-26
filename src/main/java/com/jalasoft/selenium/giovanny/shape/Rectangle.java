@@ -1,22 +1,45 @@
 package com.jalasoft.selenium.giovanny.shape;
 
 /**
- * Created by xianqe on 3/3/2017.
+ * Subclass that represents the
+ * rectangle shape.
+ *
+ * @author      Giovanny Uscamaita
+ * @version     2.0, 4/24/2017.
  */
-public class Rectangle implements Shape
-{
+public class Rectangle implements IShape {
+
     private double side1;
     private double side2;
 
-    public Rectangle(double side1, double side2){
+    /**
+     * Class constructor.
+     *
+     * @param side1 first side of the rectangle
+     * @param side2 second side of the rectangle
+     */
+    public Rectangle(final double side1, final double side2) {
         this.side1 = side1;
         this.side2 = side2;
     }
-    public double calculateArea(){
+
+    /**
+     * Method that calculates rectangle's area.
+     *
+     * @return the value calculated
+     */
+    @Override
+    public double calculateArea() {
         return side1 * side2;
 
     }
 
+    /**
+     * Method that calculates rectangle's perimeter.
+     *
+     * @return the value calculated
+     */
+    @Override
     public double calculatePerimeter() {
         return side1 + side1 + side2 + side2;
     }

@@ -1,11 +1,43 @@
 package com.jalasoft.selenium.giovanny.shape;
 
 /**
- * Created by xianqe on 3/3/2017.
+ * Subclass that represents the
+ * square shape.
+ *
+ * @author      Giovanny Uscamaita
+ * @version     2.0, 4/24/2017.
  */
-public class Square extends Rectangle {
+public class Square implements IShape {
 
-    public Square(double side){
-        super(side, side);
+    private double side;
+
+    /**
+     * Class constructor.
+     *
+     * @param side the square side to
+     *             calculate formulas
+     */
+    public Square(final double side) {
+        this.side = side;
+    }
+
+    /**
+     * Method that calculates square's area.
+     *
+     * @return the value calculated
+     */
+    @Override
+    public double calculateArea() {
+        return side * side;
+    }
+
+    /**
+     * Method that calculates square's perimeter.
+     *
+     * @return the value calculated
+     */
+    @Override
+    public double calculatePerimeter() {
+        return side + side + side + side;
     }
 }
