@@ -11,9 +11,7 @@ import java.util.List;
  */
 public class RentalStatement {
     private String name;
-    private List<Rental> rentals = new ArrayList<Rental>();
-    private double totalAmount;
-    private int frequentRenterPoints;
+    private List<Rental> rentals;
 
     /**
      * Class constructor.
@@ -22,6 +20,7 @@ public class RentalStatement {
      */
     public RentalStatement(final String customerName) {
         this.name = customerName;
+        rentals = new ArrayList<Rental>();
     }
 
     /**
@@ -34,22 +33,30 @@ public class RentalStatement {
         rentals.add(rental);
     }
 
-    /**
-     * Method that creates the rental statement.
+    /** Method that calculates the total amount
+     * of rentals done by a costumer.
      *
-     * @return the rental statement built
+     * @return the total amount
      */
-    public String makeRentalStatement() {
-        clearTotals();
-        return makeHeader() + makeRentalLines() + makeSummary();
+    public double totalAmount() {
+        double result = 0;
+        for (Rental rental : rentals) {
+            result += rental.determineAmount();
+        }
+        return result;
     }
 
-    /**
-     * Method that clears the totals acting as reset.
+    /** Method that calculates the total amount
+     * of frequent rent points done by a costumer.
+     *
+     * @return the total amount
      */
-    private void clearTotals() {
-        totalAmount = 0;
-        frequentRenterPoints = 0;
+    public int totalFrequentRentPoints() {
+        int result = 0;
+        for (Rental rental : rentals) {
+            result += rental.determineFrequentRentPoints();
+        }
+        return  result;
     }
 
     /**
@@ -58,7 +65,8 @@ public class RentalStatement {
      * @return the statement header
      */
     private String makeHeader() {
-        return "Rental Record for " + getName() + "\n";
+        String result = "Rental Record for " + getName() + "\n";
+        return result;
     }
 
     /**
@@ -68,11 +76,12 @@ public class RentalStatement {
      * @return the rental lines
      */
     private String makeRentalLines() {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         for (Rental rental : rentals) {
             buf.append(makeRentalLine(rental));
         }
-        return buf.toString();
+        String result =  buf.toString();
+        return result;
     }
 
     /**
@@ -84,8 +93,6 @@ public class RentalStatement {
      */
     private String makeRentalLine(final Rental rental) {
         double thisAmount = rental.determineAmount();
-        frequentRenterPoints += rental.determineFrequentRentPoints();
-        totalAmount += thisAmount;
 
         return formatRentalLine(rental, thisAmount);
     }
@@ -98,7 +105,8 @@ public class RentalStatement {
      * @return the line formatted
      */
     private String formatRentalLine(final Rental rental, final double thisAmount) {
-        return "\t" + rental.getTitle() + "\t" + thisAmount + "\n";
+        String result = "\t" + rental.getTitle() + "\t" + thisAmount + "\n";
+        return result;
     }
 
     /**
@@ -107,9 +115,10 @@ public class RentalStatement {
      * @return the output formatted as summary
      */
     private String makeSummary() {
-        return "You owed " + totalAmount + "\n"
-                + "You earned " + frequentRenterPoints
+        String result = "Amount owed is" + totalAmount() + "\n"
+                + "You earned " + totalFrequentRentPoints()
                 + " frequent renter points\n";
+        return result;
     }
 
     /**
@@ -126,17 +135,5 @@ public class RentalStatement {
      *
      * @return the value
      */
-    public double getAmountOwed() {
-        return totalAmount;
-    }
 
-    /**
-     * Method that returns the frequent renter points
-     * of the client.
-     *
-     * @return the value
-     */
-    public int getFrequentRenterPoints() {
-        return frequentRenterPoints;
-    }
 }

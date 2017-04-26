@@ -1,8 +1,9 @@
 package com.jalasoft.selenium.giovanny.shape;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Test class for Circle Test.
@@ -39,7 +40,7 @@ public class SquareTest {
 
         //Then
         final double expectedArea = 16;
-        Assert.assertEquals(expectedArea, actualArea, DELTA);
+        assertEquals(expectedArea, actualArea, DELTA);
 
     }
 
@@ -55,7 +56,7 @@ public class SquareTest {
 
         //Then
         final double expectedPerimeter = 16;
-        Assert.assertEquals(expectedPerimeter, actualPerimeter, DELTA);
+        assertEquals(expectedPerimeter, actualPerimeter, DELTA);
 
     }
 }

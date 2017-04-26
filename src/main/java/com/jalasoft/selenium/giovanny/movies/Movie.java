@@ -44,7 +44,7 @@ public abstract class Movie {
      * @param daysRented the value of days rented
      * @return the value calculated on subclasses
      */
-    public abstract double determineAmount(final int daysRented);
+    public abstract double determineAmount(int daysRented);
 
     /**
      * abstract method to be defined on subclasses.
@@ -52,6 +52,6 @@ public abstract class Movie {
      * @param daysRented the value of days rented
      * @return the value calculated on subclasses
      */
-    public abstract int frequentRentPoints(final int daysRented);
+    public abstract int frequentRentPoints(int daysRented);
 
 }

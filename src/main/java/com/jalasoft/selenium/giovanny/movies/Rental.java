@@ -5,7 +5,7 @@ package com.jalasoft.selenium.giovanny.movies;
  * that the movies are doing respecting a
  * costumer.
  */
-class Rental {
+public class Rental {
     private final Movie movie;
     private final int daysRented;
 

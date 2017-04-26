@@ -1,6 +1,5 @@
 package com.jalasoft.selenium.giovanny.movies;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -53,8 +52,8 @@ public class MoviesTaskTest {
      */
 
     public void assertAmountAndPointsForReport(final double expectedAmount, final int expectedPoints) {
-        Assert.assertEquals(expectedAmount, statement.getAmountOwed(), expectedAmount);
-        assertEquals(expectedPoints, statement.getFrequentRenterPoints());
+        assertEquals(expectedAmount, statement.totalAmount(), expectedAmount);
+        assertEquals(expectedPoints, statement.totalFrequentRentPoints());
     }
 
     /**
@@ -63,7 +62,6 @@ public class MoviesTaskTest {
     @Test
     public void testSingleNewReleaseType() {
         statement.addRental(new Rental(newRelease1, THREE));
-        statement.makeRentalStatement();
         assertAmountAndPointsForReport(NINE, TWO);
     }
 
@@ -74,7 +72,6 @@ public class MoviesTaskTest {
     public void testDualNewReleaseType() {
         statement.addRental(new Rental(newRelease1, THREE));
         statement.addRental(new Rental(newRelease2, THREE));
-        statement.makeRentalStatement();
         assertAmountAndPointsForReport(EIGHTEEN, FOUR);
     }
 
@@ -84,7 +81,6 @@ public class MoviesTaskTest {
     @Test
     public void testSingleChildrensType() {
         statement.addRental(new Rental(childrens, THREE));
-        statement.makeRentalStatement();
         assertAmountAndPointsForReport(ONE_AND_HALF, ONE);
     }
 
@@ -96,7 +92,6 @@ public class MoviesTaskTest {
         statement.addRental(new Rental(regular1, ONE));
         statement.addRental(new Rental(regular2, TWO));
         statement.addRental(new Rental(regular3, THREE));
-        statement.makeRentalStatement();
         assertAmountAndPointsForReport(SEVEN_AND_HALF, THREE);
     }
 }

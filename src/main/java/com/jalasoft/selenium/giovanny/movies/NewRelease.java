@@ -40,10 +40,6 @@ public class NewRelease extends Movie {
      */
     @Override
     public int frequentRentPoints(final int daysRented) {
-        if (daysRented > 1) {
-            return POSITIVE;
-        } else {
-            return NEGATIVE;
-        }
+        return daysRented > 1 ? POSITIVE : NEGATIVE;
     }
 }
