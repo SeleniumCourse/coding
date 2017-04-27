@@ -14,11 +14,9 @@ public class RegularMovies extends Movie {
      * Regular movies constructor.
      *
      * @param title movies title.
-     * @param priceCode movies price.
      */
-    public RegularMovies(final String title, final int priceCode) {
+    public RegularMovies(final String title) {
         this.title = title;
-        this.priceCode = priceCode;
     }
 
     /**

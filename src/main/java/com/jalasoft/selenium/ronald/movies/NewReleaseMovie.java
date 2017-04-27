@@ -11,11 +11,9 @@ public class NewReleaseMovie extends Movie {
      * Constructor class.
      *
      * @param title movies's name.
-     * @param priceCode price.
      */
-    public NewReleaseMovie(final String title, final int priceCode) {
+    public NewReleaseMovie(final String title) {
         this.title = title;
-        this.priceCode = priceCode;
     }
 
     /**

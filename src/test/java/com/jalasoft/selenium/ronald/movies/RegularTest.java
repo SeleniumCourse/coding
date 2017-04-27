@@ -19,8 +19,7 @@ public class RegularTest {
     @BeforeTest
     public void setup() {
         final String newRelease = "Terminator";
-        final int price = 2;
-        terminator = new RegularMovies(newRelease, price);
+        terminator = new RegularMovies(newRelease);
     }
 
     /**

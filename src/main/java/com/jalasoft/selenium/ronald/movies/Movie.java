@@ -10,7 +10,7 @@ public abstract class Movie {
     protected int priceCode;
     protected int regularBonus = 1;
     protected int frequentBonus = 2;
-    private static final String NEW_REALEASE  = "NewReleaseMovie";
+    private static final String NEW_RELEASE_MOVIE = "NewReleaseMovie";
 
 
     /**
@@ -55,7 +55,7 @@ public abstract class Movie {
      * @return bonus
      */
     public int getFrequentRenterPoint(final int daysRented, final String classType) {
-        if (classType.contains(NEW_REALEASE)  && daysRented > 1) {
+        if (classType.contains(NEW_RELEASE_MOVIE)  && daysRented > 1) {
             return frequentBonus;
         }
 

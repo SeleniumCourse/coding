@@ -19,8 +19,7 @@ public class ChildrenTest {
     @BeforeTest
     public void setup() {
          final String childrenMovie = "Dragon Ball Z";
-         final int childrenPrice = 2;
-         dragonBallZ = new ChildrenMovie(childrenMovie, childrenPrice);
+         dragonBallZ = new ChildrenMovie(childrenMovie);
     }
 
     /**

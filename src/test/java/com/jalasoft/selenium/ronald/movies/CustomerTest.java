@@ -20,16 +20,13 @@ public class CustomerTest {
 
         final String  customerName = "Test";
         final String regularMovie = "Terminator";
-        final int regularPrice = 0;
         final String childrenMovie = "Dragon Ball Z";
-        final int childrenPrice = 2;
         final String newReleaseMovie = "Batman vs Superman";
-        final int newReleasePrice = 1;
 
         customer = new Customer(customerName);
-        Movie terminator = new RegularMovies(regularMovie, regularPrice);
-        Movie dragonBallZ = new ChildrenMovie(childrenMovie, childrenPrice);
-        Movie batmanVsSuperman = new NewReleaseMovie(newReleaseMovie, newReleasePrice);
+        Movie terminator = new RegularMovies(regularMovie);
+        Movie dragonBallZ = new ChildrenMovie(childrenMovie);
+        Movie batmanVsSuperman = new NewReleaseMovie(newReleaseMovie);
         customer.addRental(new Rental(dragonBallZ, 2));
         customer.addRental(new Rental(terminator, 2));
         customer.addRental(new Rental(batmanVsSuperman, 2));
@@ -60,8 +57,7 @@ public class CustomerTest {
 
         // Given
         final String newReleaseMovie = "Fast & Furious 8";
-        final int newReleasePrice = 3;
-        Movie fastAndFurious = new NewReleaseMovie(newReleaseMovie, newReleasePrice);
+        Movie fastAndFurious = new NewReleaseMovie(newReleaseMovie);
         final int daysRented = 3;
         final int expectedSize = 4;
 

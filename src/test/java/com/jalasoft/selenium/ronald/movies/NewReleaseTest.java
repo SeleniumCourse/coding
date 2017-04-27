@@ -19,8 +19,7 @@ public class NewReleaseTest {
     @BeforeTest
     public void setup() {
         final String newRelease = "Batman vs Superman";
-        final int price = 2;
-        batmanVsSuperman = new NewReleaseMovie(newRelease, price);
+        batmanVsSuperman = new NewReleaseMovie(newRelease);
     }
 
     /**
