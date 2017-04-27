@@ -7,37 +7,17 @@ package com.jalasoft.selenium.giovanny.shape;
  * @author      Giovanny Uscamaita
  * @version     2.0, 4/24/2017.
  */
-public class Square implements IShape {
-
-    private double side;
+public class Square extends Rectangle {
 
     /**
-     * Class constructor.
+     * Class constructor that extends from Rectangle,
+     * the needed methods to calculate the area and the
+     * perimeter will be inherited from Rectangle.
      *
      * @param side the square side to
      *             calculate formulas
      */
-    public Square(final double side) {
-        this.side = side;
-    }
-
-    /**
-     * Method that calculates square's area.
-     *
-     * @return the value calculated
-     */
-    @Override
-    public double calculateArea() {
-        return side * side;
-    }
-
-    /**
-     * Method that calculates square's perimeter.
-     *
-     * @return the value calculated
-     */
-    @Override
-    public double calculatePerimeter() {
-        return side + side + side + side;
+    public Square(double side) {
+        super(side, side);
     }
 }
