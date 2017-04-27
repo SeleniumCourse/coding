@@ -1,8 +1,8 @@
 package com.jalasoft.selenium.ronald.movies;
 
-import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Customer.
@@ -15,7 +15,7 @@ public class CustomerTest {
     /**
      * Set up environment.
      */
-    @BeforeMethod
+    @Before
     public void setUp() {
 
         final String  customerName = "Test";
@@ -46,7 +46,7 @@ public class CustomerTest {
         expectedStatement += ("You earned 4 frequent renter points");
 
         // Then
-        Assert.assertEquals(customer.statement(), expectedStatement, "Statement are not equals");
+        assertEquals("Statement are not equals", expectedStatement, customer.statement());
     }
 
     /**
@@ -65,6 +65,6 @@ public class CustomerTest {
         customer.addRental(new Rental(fastAndFurious, daysRented));
 
         // Then
-        Assert.assertEquals(customer.getRentals().size(), expectedSize);
+        assertEquals(expectedSize, customer.getRentals().size());
     }
 }

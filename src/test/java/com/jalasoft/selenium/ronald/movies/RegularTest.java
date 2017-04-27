@@ -1,8 +1,8 @@
 package com.jalasoft.selenium.ronald.movies;
 
-import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Regular Movie test.
@@ -12,11 +12,12 @@ public class RegularTest {
 
     private static final int DAYS_RENTED = 2;
     private Movie terminator;
+    private static final float DELTA = 0;
 
     /**
      * * Set up environment.
      */
-    @BeforeTest
+    @Before
     public void setup() {
         final String newRelease = "Terminator";
         terminator = new RegularMovies(newRelease);
@@ -34,7 +35,7 @@ public class RegularTest {
         final double amount = terminator.calculateAmount(DAYS_RENTED);
 
         // then
-        Assert.assertEquals(amount, expected, "The values are not equals: ");
+        assertEquals("The values are not equals: ", expected, amount, DELTA);
     }
 
     /**
@@ -48,6 +49,6 @@ public class RegularTest {
         final double actualBonus = terminator.getFrequentRenterPoint(DAYS_RENTED, terminator.getClass().toString());
 
         // Then
-        Assert.assertEquals(actualBonus, expectedBonus, "The bonus are not equals: ");
+        assertEquals("The bonus are not equals: ", expectedBonus, actualBonus, DELTA);
     }
 }

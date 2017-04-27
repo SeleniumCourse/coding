@@ -1,8 +1,8 @@
 package com.jalasoft.selenium.ronald.movies;
 
-import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 /**
  * RNew Release movie.
@@ -12,11 +12,12 @@ public class NewReleaseTest {
 
     private static final int DAYS_RENTED = 2;
     private Movie batmanVsSuperman;
+    private static final float DELTA = 0;
 
     /**
      * * Set up environment.
      */
-    @BeforeTest
+    @Before
     public void setup() {
         final String newRelease = "Batman vs Superman";
         batmanVsSuperman = new NewReleaseMovie(newRelease);
@@ -34,7 +35,7 @@ public class NewReleaseTest {
         final double amount = batmanVsSuperman.calculateAmount(DAYS_RENTED);
 
         // Then
-        Assert.assertEquals(amount, expected, "The values are not equals: ");
+        assertEquals("The values are not equals: ", expected, amount, DELTA);
     }
 
     /**
@@ -49,6 +50,6 @@ public class NewReleaseTest {
                 batmanVsSuperman.getClass().toString());
 
         // Then
-        Assert.assertEquals(actualBonus, expectedBonus, "The bonus are not equals: ");
+        assertEquals("The bonus are not equals: ", expectedBonus, actualBonus, DELTA);
     }
 }

@@ -1,8 +1,9 @@
 package com.jalasoft.selenium.ronald.movies;
 
-import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Children Movie.
@@ -12,11 +13,13 @@ public class ChildrenTest {
 
     private static final int DAYS_RENTED = 2;
     private Movie dragonBallZ;
+    private static final float DELTA = 0;
+
 
     /**
      * * Set up environment.
      */
-    @BeforeTest
+    @Before
     public void setup() {
          final String childrenMovie = "Dragon Ball Z";
          dragonBallZ = new ChildrenMovie(childrenMovie);
@@ -33,7 +36,7 @@ public class ChildrenTest {
         final double amount = dragonBallZ.calculateAmount(DAYS_RENTED);
 
         // Then
-        Assert.assertEquals(amount, expected, "The values are not equals: ");
+        assertEquals("The values are not equals: ", expected, amount, DELTA);
     }
 
     /**
@@ -47,6 +50,6 @@ public class ChildrenTest {
         final double actualBonus = dragonBallZ.getFrequentRenterPoint(DAYS_RENTED, dragonBallZ.getClass().toString());
 
         // Then
-        Assert.assertEquals(actualBonus, expectedBonus, "The bonus are not equals: ");
+        assertEquals("The bonus are not equals: ", expectedBonus, actualBonus, DELTA);
     }
 }
