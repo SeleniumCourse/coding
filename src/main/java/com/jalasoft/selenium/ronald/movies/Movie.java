@@ -7,29 +7,10 @@ package com.jalasoft.selenium.ronald.movies;
 public abstract class Movie {
 
     protected String title;
-    protected int priceCode;
     protected int regularBonus = 1;
     protected int frequentBonus = 2;
     private static final String NEW_RELEASE_MOVIE = "NewReleaseMovie";
 
-
-    /**
-     * This method get movies price.
-     *
-     * @return movies price
-     */
-    public int getPriceCode() {
-        return priceCode;
-    }
-
-    /**
-     * This method set movies price.
-     *
-     * @param priceCode movies price to set.
-     */
-    public void setPriceCode(final int priceCode) {
-        this.priceCode = priceCode;
-    }
 
     /**
      * This method get movies title.

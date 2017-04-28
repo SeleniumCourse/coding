@@ -1,7 +1,6 @@
 package com.jalasoft.selenium.ronald.movies;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -67,18 +66,12 @@ public class Customer {
      * @return frequent points
      */
     private int getFrequentPoints() {
-        int frequentRenterPoints = 0;
-        Iterator<Rental> rentals = this.rentals.iterator();
-        while (rentals.hasNext()) {
-            Rental each = (Rental) rentals.next();
 
-            // add frequent renter points
-            frequentRenterPoints +=  each.getMovie().getFrequentRenterPoint(each.getDaysRented(),
-                    each.getMovie().getClass().toString());
-        }
-
-        return frequentRenterPoints;
+        return rentals.stream().mapToInt(rental -> rental.getMovie().
+                                getFrequentRenterPoint(rental.getDaysRented(),
+                                        rental.getMovie().getClass().toString())).sum();
     }
+
     /**
      * Calculate Total Amount.
      *
@@ -86,17 +79,10 @@ public class Customer {
      */
     private double calculateTotalAmount() {
         double totalAmount = 0;
-        Iterator<Rental> rentalsIterator = this.rentals.iterator();
-        while (rentalsIterator.hasNext()) {
-            double thisAmount = 0;
-            Rental each = (Rental) rentalsIterator.next();
-            thisAmount += each.getMovie().calculateAmount(each.getDaysRented());
-
-            // Set figure for rental
-            setFiguresForRental(thisAmount, each.getMovie().getTitle());
-
-            totalAmount += thisAmount;
-        }
+        rentals.forEach((it) ->
+                setFiguresForRental(it.getMovie().calculateAmount(it.getDaysRented()), it.getMovie().getTitle()));
+        totalAmount = rentals.stream().mapToDouble(rental ->
+                rental.getMovie().calculateAmount(rental.getDaysRented())).sum();
 
         return totalAmount;
     }

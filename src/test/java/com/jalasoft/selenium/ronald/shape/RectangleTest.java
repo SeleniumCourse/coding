@@ -1,8 +1,9 @@
 package com.jalasoft.selenium.ronald.shape;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * RectangleTest class.
@@ -37,7 +38,7 @@ public class RectangleTest {
 
         //Then
         final float expectedArea = 15;
-        Assert.assertEquals(expectedArea, actualArea, DELTA);
+        assertEquals(expectedArea, actualArea, DELTA);
     }
 
     /**
@@ -51,7 +52,7 @@ public class RectangleTest {
 
         //Then
         final float expectedPerimeter = 16;
-        Assert.assertEquals(actualPerimeter, expectedPerimeter, DELTA);
+        assertEquals(actualPerimeter, expectedPerimeter, DELTA);
     }
 
 

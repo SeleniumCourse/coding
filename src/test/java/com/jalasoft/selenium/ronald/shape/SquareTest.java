@@ -1,8 +1,9 @@
 package com.jalasoft.selenium.ronald.shape;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * SquareTest class.
@@ -35,7 +36,7 @@ public class SquareTest {
 
         // Then
         final float expectedArea = 25;
-        Assert.assertEquals(expectedArea, actualArea, DELTA);
+        assertEquals(expectedArea, actualArea, DELTA);
     }
 
     /**
@@ -49,6 +50,6 @@ public class SquareTest {
 
         // Then
         final float expectedPerimeter = 20;
-        Assert.assertEquals(expectedPerimeter, actualPerimeter, DELTA);
+        assertEquals(expectedPerimeter, actualPerimeter, DELTA);
     }
 }
