@@ -26,4 +26,14 @@ public class NewReleaseMovie extends Movie {
 
         return daysRented * AMOUNT;
     }
+
+    /**
+     * return bonus value.
+     *
+     * @param daysRented number of Days Rented
+     * @return bonus
+     */
+    public int getFrequentRenterPoint(int daysRented) {
+        return frequentBonus;
+    }
 }

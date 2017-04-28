@@ -46,7 +46,7 @@ public class RegularTest {
         final double expectedBonus = 1;
 
         // When
-        final double actualBonus = terminator.getFrequentRenterPoint(DAYS_RENTED, terminator.getClass().toString());
+        final double actualBonus = terminator.getFrequentRenterPoint(DAYS_RENTED);
 
         // Then
         assertEquals("The bonus are not equals: ", expectedBonus, actualBonus, DELTA);

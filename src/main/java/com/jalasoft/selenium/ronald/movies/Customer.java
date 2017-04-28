@@ -68,8 +68,7 @@ public class Customer {
     private int getFrequentPoints() {
 
         return rentals.stream().mapToInt(rental -> rental.getMovie().
-                                getFrequentRenterPoint(rental.getDaysRented(),
-                                        rental.getMovie().getClass().toString())).sum();
+                                getFrequentRenterPoint(rental.getDaysRented())).sum();
     }
 
     /**

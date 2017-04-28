@@ -47,7 +47,7 @@ public class ChildrenTest {
 
         // When
         final double expectedBonus = 1;
-        final double actualBonus = dragonBallZ.getFrequentRenterPoint(DAYS_RENTED, dragonBallZ.getClass().toString());
+        final double actualBonus = dragonBallZ.getFrequentRenterPoint(DAYS_RENTED);
 
         // Then
         assertEquals("The bonus are not equals: ", expectedBonus, actualBonus, DELTA);

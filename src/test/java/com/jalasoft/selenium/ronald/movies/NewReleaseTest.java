@@ -46,8 +46,7 @@ public class NewReleaseTest {
 
         // When
         final double expectedBonus = 2;
-        final double actualBonus = batmanVsSuperman.getFrequentRenterPoint(DAYS_RENTED,
-                batmanVsSuperman.getClass().toString());
+        final double actualBonus = batmanVsSuperman.getFrequentRenterPoint(DAYS_RENTED);
 
         // Then
         assertEquals("The bonus are not equals: ", expectedBonus, actualBonus, DELTA);

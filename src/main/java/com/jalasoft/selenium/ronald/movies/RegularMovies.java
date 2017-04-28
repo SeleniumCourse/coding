@@ -33,4 +33,14 @@ public class RegularMovies extends Movie {
 
         return thisAmount;
     }
+
+    /**
+     * return bonus value.
+     *
+     * @param daysRented number of Days Rented
+     * @return bonus
+     */
+    public int getFrequentRenterPoint(int daysRented) {
+        return regularBonus;
+    }
 }
