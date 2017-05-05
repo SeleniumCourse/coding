@@ -17,6 +17,13 @@ public class FakeRental extends Rental {
     }
 
     /**
+     * @param movie The movie.
+     */
+    public FakeRental(final Movie movie) {
+        super(movie, 0);
+    }
+
+    /**
      * @param testRentalAmount The amount.
      */
     public void setTestRentalAmount(final double testRentalAmount) {

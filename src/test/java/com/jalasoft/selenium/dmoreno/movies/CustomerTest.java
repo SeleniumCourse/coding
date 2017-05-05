@@ -66,4 +66,21 @@ public class CustomerTest {
 
         assertEquals(expectedFrequentPoints, customer.calculateFrequentRenterPoints());
     }
+
+    /**
+     *
+     */
+    @Test
+    public void getStatementTest() {
+        String expectedStatement =
+                "Rental Record for \n"
+                + "\t\t0.0\n"
+                + "Amount owed is 0.0\n"
+                + "You earned 1 frequent renter points";
+
+        Customer customer = new Customer("");
+        customer.addRental(new FakeRental(new Movie("")));
+
+        assertEquals(expectedStatement, customer.getStatement());
+    }
 }

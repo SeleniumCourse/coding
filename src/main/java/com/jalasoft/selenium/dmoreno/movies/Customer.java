@@ -33,9 +33,9 @@ public class Customer {
     }
 
     /**
-     * @return statement
+     * @return getStatement
      */
-    public String statement() {
+    public String getStatement() {
         StringBuilder resultBuilder = new StringBuilder("Rental Record for " + getName() + "\n");
 
         for (Rental each : this.rentals) {

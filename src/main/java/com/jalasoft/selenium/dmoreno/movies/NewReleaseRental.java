@@ -33,10 +33,7 @@ public class NewReleaseRental extends Rental {
      */
     public int getFrequentRenterPoints() {
         final int daysRentedRequired = 1;
-        if (this.getDaysRented() > daysRentedRequired) {
-            return daysRentedRequired;
-        }
 
-        return 0;
+        return this.getDaysRented() > daysRentedRequired ? daysRentedRequired : 0;
     }
 }
