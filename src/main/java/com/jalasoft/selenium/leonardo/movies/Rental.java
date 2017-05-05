@@ -21,7 +21,6 @@ public class Rental {
      *
      * @return number of days rented
      */
-
     public int getDaysRented() {
         return daysRented;
     }
