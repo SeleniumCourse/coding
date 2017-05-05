@@ -1,4 +1,5 @@
 /.gradle/
+/.class/
 /.idea/
 /build/
 /.nb-gradle/
