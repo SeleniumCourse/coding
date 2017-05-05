@@ -9,13 +9,15 @@ import java.util.List;
  */
 public class Customer {
     private final String name;
-    private final List<Rental> rentals = new ArrayList<Rental>();
+    private final List<Rental> rentals;
 
     /**
      * @param name name
      */
     public Customer(final String name) {
+
         this.name = name;
+        this.rentals = new ArrayList<>();
     }
 
     /**
