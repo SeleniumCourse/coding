@@ -5,11 +5,19 @@ package com.jalasoft.selenium.leonardo.movies;
  */
 public class movieType {
 
-    /** Regular, New Release, Childrens 0, 1, 2*/
-    public void movieType(){
+    /**
+     * Regular, New Release, Childrens 0, 1, 2
+     */
+    public void movieType() {
         }
 
-    public double getAmount(int priceCode, int daysRented){
+    /**
+     *
+     * @param priceCode code of the price
+     * @param daysRented number of days rented
+     * @return amoung owed
+     */
+    public double getAmount(int priceCode, int daysRented) {
         double thisAmount = 0;
         switch (priceCode) {
             case 0:

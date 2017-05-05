@@ -14,14 +14,20 @@ public class rectangleShapeTest {
 
     private baseShape rectangle;
 
+    /**
+     *
+     */
     @Before
-    public void setUp(){
+    public void setUp() {
         //Given
         final double l = 5;
         final double w = 7;
         rectangle = new rectangleShape(l, w);
     }
 
+    /**
+     *
+     */
     @Test /**nomenclatura 1*/
     public void testCalculateAreaWhen() {
 
@@ -33,6 +39,9 @@ public class rectangleShapeTest {
         assertEquals(expectedArea, actualArea, DELTA);
     }
 
+    /**
+     *
+     */
     @Test /**nomenclatura 2*/
     public void testCalculatePerimeterWhen() {
 

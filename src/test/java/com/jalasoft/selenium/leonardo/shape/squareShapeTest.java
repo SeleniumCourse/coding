@@ -15,12 +15,15 @@ public class squareShapeTest {
     private baseShape square;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         //Given
         final double l = 5;
         square = new squareShape(l);
     }
 
+    /**
+     *
+     */
     @Test
     /**nomenclatura 1*/
     public void testCalculateAreaWhen() {
@@ -33,6 +36,9 @@ public class squareShapeTest {
         assertEquals(expectedArea, actualArea, DELTA);
     }
 
+    /**
+     *
+     */
     @Test /**nomenclatura 2*/
     public void testCalculatePerimeterWhen() {
 

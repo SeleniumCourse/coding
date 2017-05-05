@@ -3,23 +3,36 @@ package com.jalasoft.selenium.leonardo.shape;
 /**
  * Created by Automation on 3/3/2017.
  */
-public class rectangleShape extends baseShape{
+public class rectangleShape extends baseShape {
     private double l;
     private double w;
 
-    public rectangleShape(double l, double w){   /**constructor*/
+    /**
+     *
+     * @param l length
+     * @param w width
+     */
+    public rectangleShape(double l, double w) {   //constructor
         this.l = l;
         this.w = w;
     }
 
-    public double calculateArea(){
+    /**
+     *
+     * @return rectangle area
+     */
+    public double calculateArea() {
         double returnValue;
-        return returnValue = this.l*this.w;
+        return returnValue = this.l * this.w;
     }
 
-    public double calculatePerimeter(){
+    /**
+     *
+     * @return rectanble perimeter
+     */
+    public double calculatePerimeter() {
         double returnValue;
-        return returnValue = 2*(this.l+this.w);
+        return returnValue = 2 * (this.l + this.w);
     }
 
 }

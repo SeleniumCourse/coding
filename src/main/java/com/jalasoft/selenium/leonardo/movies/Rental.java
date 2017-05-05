@@ -1,19 +1,36 @@
 package com.jalasoft.selenium.leonardo.movies;
 
-class Rental {
-    private Movie _movie;
-    private int _daysRented;
+/**
+ *
+ */
+public class Rental {
+    private Movie movie;
+    private int daysRented;
 
-    public Rental(Movie movie, int daysRented) {
-        _movie = movie;
-        _daysRented = daysRented;
+    /**
+     *
+     * @param movieM movie name
+     * @param daysRentedM number of days rented
+     */
+    public Rental(Movie movieM, int daysRentedM) {
+        movie = movieM;
+        daysRented = daysRentedM;
     }
+
+    /**
+     *
+     * @return number of days rented
+     */
 
     public int getDaysRented() {
-        return _daysRented;
+        return daysRented;
     }
 
+    /**
+     *
+     * @return movie
+     */
     public Movie getMovie() {
-        return _movie;
+        return movie;
     }
 }

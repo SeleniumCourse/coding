@@ -6,17 +6,29 @@ package com.jalasoft.selenium.leonardo.shape;
 public class circleShape extends baseShape {
     private double radio;
 
-    public circleShape(double radio){   /**constructor instanciar clase*/
+    /**
+     *
+     * @param radio data for the circle
+     */
+    public circleShape(double radio) {   //constructor instanciar clase
         this.radio = radio;
-    } /** constructor */
-
-    public double calculateArea(){
-        double returnValue;
-        return returnValue = PI*(this.radio*this.radio);
     }
 
-    public double calculatePerimeter(){
+    /**
+     *
+     * @return area
+     */
+    public double calculateArea() {
         double returnValue;
-        return returnValue = 2*PI*this.radio;
+        return returnValue = PI * (this.radio * this.radio);
+    }
+
+    /**
+     *
+     * @return perimeter
+     */
+    public double calculatePerimeter() {
+        double returnValue;
+        return returnValue = 2 * PI * this.radio;
     }
 }

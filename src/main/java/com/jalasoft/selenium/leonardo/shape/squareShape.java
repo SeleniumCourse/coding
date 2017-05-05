@@ -5,7 +5,11 @@ package com.jalasoft.selenium.leonardo.shape;
  */
 public class squareShape extends rectangleShape{
 
-    public squareShape(double l){   /**instanciar clase*/
+    /**
+     *
+     * @param l square is rectangle with both sides the same
+     */
+    public squareShape(double l) {   //instanciar clase
         super(l,l);
     }
 

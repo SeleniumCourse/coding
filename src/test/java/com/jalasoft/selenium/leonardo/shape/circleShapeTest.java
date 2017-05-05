@@ -15,13 +15,19 @@ public class circleShapeTest {
 
     private baseShape circle;
 
+    /**
+     *
+     */
     @Before
-    public void setUp(){
+    public void setUp() {
         //Given
         final int radio = 5;
         circle = new circleShape(radio);
     }
 
+    /**
+     *
+     */
     @Test /**nomenclatura 1*/
     public void testCalculateAreaWhen() {
 
@@ -33,6 +39,9 @@ public class circleShapeTest {
         assertEquals(expectedArea, actualArea, DELTA);
     }
 
+    /**
+     *
+     */
     @Test /**nomenclatura 2*/
     public void test_calculatePerimeter_when() {
 
@@ -40,7 +49,7 @@ public class circleShapeTest {
         final double actualPerimeter = circle.calculatePerimeter();
 
         //then - assertion
-        final double expectedPerimeter = 31.4;
+        final double expectedPerimeter = 31.400000000000002;
         assertEquals(expectedPerimeter, actualPerimeter, DELTA);
     }
 }
