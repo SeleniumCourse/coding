@@ -5,7 +5,6 @@
  */
 package com.jalasoft.selenium.daniel.jauregui.movies;
 
-import java.util.Iterator;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -39,7 +38,6 @@ public class CustomerTest {
         //When
         final int expResult = 3;
         //Then
-        System.out.println("addRental");
         assertEquals(expResult, instance.getRentals().size());
     }
 
@@ -49,8 +47,7 @@ public class CustomerTest {
     @Test
     public void testStatementWithoutBonus() {
         //When
-        String result = instance.statement();
-        System.out.println(result);
+        String result = instance.printStatement();
         String expResult = "Rental Record for TestClient\n";
         expResult += "\tLego Batman\t21.0\n";
         expResult += "\tCivil War\t2.0\n";
@@ -58,7 +55,6 @@ public class CustomerTest {
         expResult += "Amount owed is 24.5\n";
         expResult += "You earned 3 frequent renter points";
         //Then
-        System.out.println("testStatementWithoutBonus");
         assertEquals(expResult, result);
     }
 
@@ -68,15 +64,11 @@ public class CustomerTest {
     @Test
     public void testStatementWithBonus() {
         //When
-        Iterator<Rental> rentals = instance.getRentals().iterator();
-        Rental each;
         final int bonus = 1;
-        while (rentals.hasNext()) {
-            each = (Rental) rentals.next();
-            each.getMovie().setBonus(bonus);
+        for (Rental rental : instance.getRentals()) {
+            rental.getMovie().setBonus(bonus);
         }
-        String result = instance.statement();
-        System.out.println(result);
+        String result = instance.printStatement();
         String expResult = "Rental Record for TestClient\n";
         expResult += "\tLego Batman\t21.0\n";
         expResult += "\tCivil War\t2.0\n";
@@ -84,7 +76,6 @@ public class CustomerTest {
         expResult += "Amount owed is 24.5\n";
         expResult += "You earned 6 frequent renter points";
         //Then
-        System.out.println("testStatementWithBonus");
         assertEquals(expResult, result);
     }
 }

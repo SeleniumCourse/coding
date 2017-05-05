@@ -1,4 +1,8 @@
 /.gradle/
+/.class/
 /.idea/
 /build/
 /.nb-gradle/
+chromedriver.exe
+nbproject/
+classes
